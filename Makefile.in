@@ -89,7 +89,7 @@ pkgindb_create.h:
 
 # maintainer helpers
 
-PKGINCVS="imilh@pkgin.cvs.sourceforge.net:/cvsroot/pkgin"
+PKGINCVS=":pserver:anonymous@cvs.pkgin.net:/cvsroot/pkgin"
 CURDATE!=date +%Y%m%d
 WIPHOME=/home/imil/netbsd-cvs/pkgsrc/wip
 CURDIR!=pwd
