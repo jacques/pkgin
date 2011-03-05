@@ -198,13 +198,15 @@ pkg_keep(int type, char **pkgargs)
 				printf(MSG_MARKING_PKG_KEEP, pkgname);
 				snprintf(query, BUFSIZ, KEEP_PKG, pkgname);
 				/* mark as non-automatic in pkgdb */
-				mark_as_automatic_installed(pkgname, 0);
+				if (mark_as_automatic_installed(pkgname, 0) < 0)
+					exit(EXIT_FAILURE);
 				break;
 			case UNKEEP:
 				printf(MSG_UNMARKING_PKG_KEEP, pkgname);
 				snprintf(query, BUFSIZ, UNKEEP_PKG, pkgname);
 				/* mark as automatic in pkgdb */
-				mark_as_automatic_installed(pkgname, 1);
+				if (mark_as_automatic_installed(pkgname, 1) < 0)
+					exit(EXIT_FAILURE);
 				break;
 			}
 
