@@ -116,7 +116,7 @@ download_file(char *url, time_t *db_mtime)
 			humanize_number(sz, 8, (int64_t)(buf_fetched / (now - begin_dl)),
 				"bps", HN_AUTOSCALE, HN_B | HN_DECIMAL | HN_NOSPACE);
 		else
-			humanize_number(sz, 8, 0,
+			humanize_number(sz, 8, (int64_t)buf_fetched,
 				"bps", HN_AUTOSCALE, HN_B | HN_DECIMAL | HN_NOSPACE);
 
 		printf(MSG_DOWNLOADING_PCT, p, sz,
