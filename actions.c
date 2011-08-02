@@ -67,6 +67,7 @@ static void
 pkg_download(Deptreehead *installhead)
 {
 	FILE		*fp;
+	fetchIO		*f = NULL;
 	Pkgdeptree	*pinstall;
 	struct stat	st;
 	Dlfile		*dlpkg;
@@ -104,7 +105,7 @@ pkg_download(Deptreehead *installhead)
 		strlcat(pkg, pinstall->depname, sizeof(pkg));
 		strlcat(pkg, PKG_EXT, sizeof(pkg));
 
-		if ((dlpkg = download_file(pkg, NULL)) == NULL) {
+		if ((dlpkg = download_file(f, pkg, NULL)) == NULL) {
 			fprintf(stderr, MSG_PKG_NOT_AVAIL, pinstall->depname);
 			if (!check_yesno())
 				errx(EXIT_FAILURE, MSG_PKG_NOT_AVAIL,

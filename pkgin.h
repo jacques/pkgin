@@ -154,7 +154,7 @@ extern char  		lslimit;
 extern char			pkgtools_flags[];
 
 /* download.c*/
-Dlfile		*download_file(char *, time_t *);
+Dlfile		*download_file(fetchIO *, char *, time_t *);
 /* summary.c */
 void		update_db(int, char **);
 /* depends.c */

@@ -33,7 +33,7 @@
 #include "pkgin.h"
 
 Dlfile *
-download_file(char *url, time_t *db_mtime)
+download_file(fetchIO *f, char *url, time_t *db_mtime)
 {
 	/* from pkg_install/files/admin/audit.c */
 	Dlfile			*file;
@@ -43,7 +43,6 @@ download_file(char *url, time_t *db_mtime)
 	ssize_t			cur_fetched;
 	time_t			begin_dl, now;
 	struct url_stat	st;
-	fetchIO			*f = NULL;
 	int				retry = 3;
 
 	if ((fetchStatURL(url, &st, "") < 0) || st.size == -1) {
