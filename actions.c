@@ -120,6 +120,7 @@ pkg_download(Deptreehead *installhead)
 
 		XFREE(dlpkg->buf);
 		XFREE(dlpkg);
+
 	} /* download loop */
 }
 

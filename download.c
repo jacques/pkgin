@@ -32,6 +32,9 @@
 
 #include "pkgin.h"
 
+/* Nasty workaround for buggy libfetch */
+int fetchTimeout = 2;
+
 Dlfile *
 download_file(fetchIO *f, char *url, time_t *db_mtime)
 {
@@ -124,7 +127,6 @@ download_file(fetchIO *f, char *url, time_t *db_mtime)
 		fflush(stdout);
 	}
 
-	fetchIO_close(f);
 
 	file->buf[buf_len] = '\0';
 	file->size = buf_len;
@@ -133,6 +135,8 @@ download_file(fetchIO *f, char *url, time_t *db_mtime)
 		errx(EXIT_FAILURE, "empty download, exiting.\n");
 
 	printf("\n");
+
+	fetchIO_close(f);
 
 	return file;
 }
