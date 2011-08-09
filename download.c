@@ -32,6 +32,8 @@
 
 #include "pkgin.h"
 
+int fetchTimeout = 15; /* wait 15 seconds before timeout */
+
 Dlfile *
 download_file(char *str_url, time_t *db_mtime)
 {
