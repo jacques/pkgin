@@ -54,17 +54,17 @@ download_file(char *str_url, time_t *db_mtime)
 	if ((f = fetchXGet(url, &st, "")) == NULL)
 		return NULL;
 
-	if (st.size == -1) {
+	if (st.size == -1) { /* could not obtain file size */
 		if (db_mtime != NULL) /* we're downloading pkg_summary */
-			*db_mtime = 0;
+			*db_mtime = 0; /* ! -1, don't force update */
 
 		return NULL;
 	}
 
 	if (db_mtime != NULL) {
 		if (st.mtime <= *db_mtime) {
-			/* local db is up-to-date */
-			*db_mtime = -1; /* used to identify return type */
+			/* -1 used to identify return type, local summary up-to-date */
+			*db_mtime = -1; 
 
 			fetchIO_close(f);
 
