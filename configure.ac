@@ -1,7 +1,7 @@
 # $Id$
 
 AC_PREREQ([2.61])
-AC_INIT([pkgin], [0.4.2.2], [imil@NetBSD.org])
+AC_INIT([pkgin], [0.4.3], [imil@NetBSD.org])
 AC_CONFIG_SRCDIR([actions.c])
 AC_CONFIG_HEADERS([config.h])
 
