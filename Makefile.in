@@ -8,6 +8,7 @@ SRCS=		main.c summary.c tools.c pkgindb.c depends.c actions.c \
 # included from libinstall
 SRCS+=		automatic.c decompress.c dewey.c fexec.c global.c \
 		opattern.c pkgdb.c var.c
+SRCS+=		progressmeter.c
 
 SRCS+=		@SRCS@
 
