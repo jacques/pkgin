@@ -42,7 +42,6 @@ download_file(char *str_url, time_t *db_mtime)
 	/* from pkg_install/files/admin/audit.c */
 	Dlfile			*file;
 	char			*p;
-//	char			sz[8];
 	size_t			buf_len, buf_fetched;
 	ssize_t			cur_fetched;
 	off_t			statsize;
