@@ -405,7 +405,9 @@ pkg_in_impact(Impacthead *impacthead, char *pkgname)
 Impacthead *
 pkg_impact(char **pkgargs)
 {
+#ifndef DEBUG
 	static char	*icon = ICON_WAIT;
+#endif
 	Plisthead	*localplisthead;
 	Plisthead	*remoteplisthead;
 	Deptreehead	pdphead;
