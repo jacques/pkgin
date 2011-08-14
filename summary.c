@@ -299,7 +299,7 @@ child_table(const char *fmt, ...)
 	va_list	ap;
 
 	va_start(ap, fmt);
-	snprintf(buf, BUFSIZ, fmt, ap);
+	vsnprintf(buf, BUFSIZ, fmt, ap);
 	va_end(ap);
 
 	/* append query to commit_list */

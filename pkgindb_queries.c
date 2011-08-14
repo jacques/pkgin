@@ -149,4 +149,4 @@ const char INSERT_SINGLE_VALUE[] =
 	"INSERT INTO %s (PKG_ID, %s_PKGNAME) VALUES (%d,\"%s\");";
 
 const char INSERT_DEPENDS_VALUES[] = 
-	"INSERT INTO %s (PKG_ID, %s_PKGNAME, %_DEWEY) VALUES (%d,\"%s\",\"%s\");";
+	"INSERT INTO %s (PKG_ID, %s_PKGNAME, %s_DEWEY) VALUES (%d,\"%s\",\"%s\");";
