@@ -418,6 +418,8 @@ insert_summary(struct Summary sum, char **summary, char *cur_repo)
 		/* PKGNAME record, should always be true  */
 		if ((pkgname = field_record("PKGNAME", *psum)) != NULL) {
 
+			add_to_slist("FULLPKGNAME", pkgname);
+
 			/* split PKGNAME and VERSION */
 			pkgvers = strrchr(pkgname, '-');
 			*pkgvers++ = '\0';
