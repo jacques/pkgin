@@ -113,6 +113,7 @@ in order to remove packages from the autoremove list, flag those with the -k mod
 #define MSG_PROCESSING_REMOTE_SUMMARY "processing remote summary (%s)...\n"
 #define MSG_COULDNT_FETCH "Could not fetch %s\n"
 #define MSG_ARCH_DONT_MATCH "\r\n/!\\ Warning /!\\ %s doesn't match your current architecture (%s)\nYou probably want to modify "PKGIN_CONF"/"REPOS_FILE".\nStill want to "
+#define MSG_COULD_NOT_GET_PKGNAME "Could not get package name from dependency: %s\n"
 
 /* impact.c */
 #define MSG_GREATER_VERSION \

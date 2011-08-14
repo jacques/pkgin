@@ -44,6 +44,7 @@
 #include "messages.h"
 #include "pkgindb.h"
 #include "tools.h"
+#include "pkg_str.h"
 #include "lib.h"
 
 #ifndef PKGTOOLS

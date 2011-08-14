@@ -144,3 +144,9 @@ const char INSERT_REPO[] =
 
 const char UPDATE_REPO_MTIME[] =
     "UPDATE REPOS SET REPO_MTIME = %lld WHERE REPO_URL = \'%s\';";
+
+const char INSERT_SINGLE_VALUE[] =
+	"INSERT INTO %s (PKG_ID, %s_PKGNAME) VALUES (%d,\"%s\");";
+
+const char INSERT_DEPENDS_VALUES[] = 
+	"INSERT INTO %s (PKG_ID, %s_PKGNAME, %_DEWEY) VALUES (%d,\"%s\",\"%s\");";
