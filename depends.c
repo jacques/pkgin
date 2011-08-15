@@ -147,7 +147,7 @@ full_dep_tree(const char *pkgname, const char *depquery, Deptreehead *pdphead)
 			snprintf(query, BUFSIZ, depquery, pdp->matchname);
 			pkgindb_doquery(query, pdb_rec_direct_deps, pdphead);
 
-#ifdef 0
+#if 0
 			printf("%i: p: %s, l: %d\n", level, pdp->depname,
 			    pdp->level);
 #endif
