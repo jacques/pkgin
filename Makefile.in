@@ -55,7 +55,7 @@ MKMAN=		no
 .PATH:	external sqlite
 
 .if defined(DEBUG)
-CPPFLAGS+=	-DDEBUG -O0
+CPPFLAGS+=	-DDEBUG
 PKGIN_DB!=	pwd
 .else
 PKGIN_DB=	${VARBASE}/db/pkgin

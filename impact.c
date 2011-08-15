@@ -280,13 +280,14 @@ deps_impact(Impacthead *impacthead,
 
 /* is pkgname already in impact list ? */
 static uint8_t
-pkg_in_impact(Impacthead *impacthead, char *pkgname)
+pkg_in_impact(Impacthead *impacthead, char *depname)
 {
 	Pkgimpact	*pimpact;
 
-	SLIST_FOREACH(pimpact, impacthead, next)
-		if (strncmp(pimpact->depname, pkgname, strlen(pkgname)) == 0)
+	SLIST_FOREACH(pimpact, impacthead, next) {
+		if (strcmp(pimpact->depname, depname) == 0)
 			return 1;
+	}
 
 	return 0;
 }
