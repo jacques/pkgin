@@ -50,8 +50,7 @@ clear_pattern(char *depend)
 static void
 cleanup_version(char *pkgname)
 {
-	char	*exten, *tmp;
-	int		stripit = 0, gotalpha = 0, len = strlen(pkgname);
+	char	*exten;
 
 	/* have we got foo-something ? */
 	if ((exten = strrchr(pkgname, '-')) == NULL)

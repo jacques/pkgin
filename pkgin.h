@@ -121,7 +121,9 @@ typedef struct Pkgdeptree {
 } Pkgdeptree;
 
 typedef struct Pkglist {
-	char *pkgname; /* foo-1.0 */
+	char *fullpkgname; /* foo-1.0 */
+	char *pkgname; /* foo */
+	char *pkgvers; /* 1.0 */
 	char *comment; /* comment */
 	int64_t file_size; /* binary package size */
 	int64_t size_pkg; /* installed package size */
