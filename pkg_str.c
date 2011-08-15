@@ -32,6 +32,65 @@
 
 #include "pkgin.h"
 
+/* basic full package format detection */
+int
+exact_pkgfmt(const char *pkgname)
+{
+	char	*p;
+
+	if ((p = strrchr(pkgname, '-')) == NULL)
+		return 0;
+
+	p++;
+
+	/* naive assumption, will fail with foo-100bar, hopefully, there's
+	 * only a few packages needing to be fully specified
+	 */
+	return isdigit((int)*p);
+}
+
+/* 
+ * check whether or not pkgarg is a full pkgname (foo-1.0)
+ */
+char *
+find_exact_pkg(Plisthead *plisthead, const char *pkgarg)
+{
+	Pkglist	*pkglist;
+	char	*pkgname, *tmppkg;
+	int		tmplen, exact;
+
+	/* is it a versionned package ? */
+	exact = exact_pkgfmt(pkgarg);
+
+	/* check for package existence */
+	SLIST_FOREACH(pkglist, plisthead, next) {
+		XSTRDUP(tmppkg, pkglist->fullpkgname);
+
+		if (!exact) {
+			/*
+			 * pkgarg was not in exact format, i.e. foo-bar
+			 * instead of foo-bar-1, truncate tmppkg :
+			 * foo-bar-1.0 -> foo-bar
+			 * and set len to tmppkg
+			 */
+			trunc_str(tmppkg, '-', STR_BACKWARD);
+		}
+		/* tmplen = strlen("foo-1{.vers}") */
+		tmplen = strlen(tmppkg);
+
+		if (strlen(pkgarg) == tmplen &&
+			strncmp(tmppkg, pkgarg, tmplen) == 0) {
+			XFREE(tmppkg);
+
+			XSTRDUP(pkgname, pkglist->fullpkgname);
+			return pkgname;
+		}
+		XFREE(tmppkg);
+	}
+
+	return NULL;
+}
+
 static void
 clear_pattern(char *depend)
 {
