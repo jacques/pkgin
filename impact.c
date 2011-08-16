@@ -198,6 +198,7 @@ deps_impact(Impacthead *impacthead,
 	 */
 	XMALLOC(pimpact, sizeof(Pkgimpact));
 	XSTRDUP(pimpact->depname, pdp->depname);
+
 	pimpact->action = DONOTHING;
 	pimpact->oldpkg = NULL;
 	pimpact->pkgname = NULL;

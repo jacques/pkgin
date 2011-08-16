@@ -131,7 +131,8 @@ typedef struct Pkgdeptree {
 } Pkgdeptree;
 
 typedef struct Pkgimpact {
-	char *depname; /* depencendy pattern: perl-[0-9]* */
+    /* depencendy pattern: perl-[0-9]* (direct) or full pkgname (reverse) */
+	char *depname;
 	char *pkgname; /* real dependency name: perl-5.10 */
 	char *oldpkg; /* package to upgrade: perl-5.8 */
 	int action; /* TOINSTALL or TOUPGRADE */
