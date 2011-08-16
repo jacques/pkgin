@@ -35,6 +35,7 @@ CPPFLAGS+=	-D_POSIX_SOURCE -D_MINIX
 LDADD+=		-lsqlite3
 .else
 SRCS+=		sqlite3.c
+CPPFLAGS.sqlite3.c+=	-DUSE_PREAD
 .endif
 
 LOCALBASE?=		@prefix@

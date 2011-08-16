@@ -110,6 +110,7 @@ typedef struct Dlfile {
 	size_t size;
 } Dlfile;
 
+/* Package list */
 typedef struct Pkglist {
 	char *fullpkgname; /* foo-1.0 */
 	char *pkgname; /* foo */
@@ -120,6 +121,7 @@ typedef struct Pkglist {
 	SLIST_ENTRY(Pkglist) next;
 } Pkglist;
 
+/* Package dependency tree */
 typedef struct Pkgdeptree {
 	char *depname; /* foo>=1.0 for direct deps, foo-1.0 for reverse deps */
 	char *matchname; /* foo */
@@ -130,10 +132,12 @@ typedef struct Pkgdeptree {
 	SLIST_ENTRY(Pkgdeptree) next;
 } Pkgdeptree;
 
+/* Impact list */
 typedef struct Pkgimpact {
     /* depencendy pattern: perl-[0-9]* (direct) or full pkgname (reverse) */
 	char *depname;
-	char *pkgname; /* real dependency name: perl-5.10 */
+	/* real dependency name: perl-5.10, full remote package */
+	char *fullpkgname;
 	char *oldpkg; /* package to upgrade: perl-5.8 */
 	int action; /* TOINSTALL or TOUPGRADE */
 	int level; /* dependency level, inherited from full dependency list */
