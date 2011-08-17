@@ -34,6 +34,10 @@
 
 static Plisthead *plisthead = NULL;
 
+
+/**
+ * frees dependency tree
+ */
 void
 free_deptree(Deptreehead *deptreehead)
 {
@@ -51,7 +55,9 @@ free_deptree(Deptreehead *deptreehead)
 	}
 }
 
-/* match dependency extension */
+/**
+ * match dependency extension
+ */
 char *
 match_dep_ext(char *depname, const char *ext)
 {
@@ -69,7 +75,8 @@ match_dep_ext(char *depname, const char *ext)
 /* pkgname for direct deps and reverse deps */
 #define DEPS_PKGNAME		argv[1]
 #define PKG_KEEP			argv[2]
-/* sqlite callback
+/**
+ * sqlite callback
  * DIRECT_DEPS or REVERSE_DEPS result, feeds a Pkgdeptree SLIST
  * Deptreehead is the head of Pkgdeptree
  */
@@ -104,7 +111,9 @@ pdb_rec_direct_deps(void *param, int argc, char **argv, char **colname)
 	return PDB_OK;
 }
 
-/* recursively parse dependencies: this is our central function  */
+/**
+ * recursively parse dependencies: this is our central function
+ */
 void
 full_dep_tree(const char *pkgname, const char *depquery, Deptreehead *pdphead)
 {
