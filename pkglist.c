@@ -95,6 +95,8 @@ free_pkglist(Plisthead *plisthead, uint8_t type)
 		XFREE(plist);
 	}
 	XFREE(plisthead);
+
+	plisthead = NULL;
 }
 
 /* SQLite results columns */
