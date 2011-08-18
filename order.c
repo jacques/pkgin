@@ -77,7 +77,7 @@ remove_dep_deepness(Plisthead *deptreehead)
 		    	pdp->level = SLIST_FIRST(&lvldeptree)->level + 1;
 
 		XFREE(depname);
-		free_deptree(&lvldeptree);
+		free_pkglist(&lvldeptree, DEPTREE);
 
 #if 0
 		printf("%s -> %d\n", pdp->depend, pdp->level);

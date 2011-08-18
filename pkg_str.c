@@ -64,7 +64,7 @@ find_exact_pkg(Plisthead *plisthead, const char *pkgarg)
 
 	/* check for package existence */
 	SLIST_FOREACH(pkglist, plisthead, next) {
-		XSTRDUP(tmppkg, pkglist->fullpkgname);
+		XSTRDUP(tmppkg, pkglist->full);
 
 		if (!exact) {
 			/*
@@ -82,7 +82,7 @@ find_exact_pkg(Plisthead *plisthead, const char *pkgarg)
 			strncmp(tmppkg, pkgarg, tmplen) == 0) {
 			XFREE(tmppkg);
 
-			XSTRDUP(pkgname, pkglist->fullpkgname);
+			XSTRDUP(pkgname, pkglist->full);
 			return pkgname;
 		}
 		XFREE(tmppkg);

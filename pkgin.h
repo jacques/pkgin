@@ -186,7 +186,6 @@ void		show_direct_depends(const char *);
 void		show_full_dep_tree(const char *, const char *, const char *);
 void 		full_dep_tree(const char *pkgname, const char *depquery,
 	Plisthead	*pdphead);
-void		free_deptree(Plisthead *);
 /* pkglist.c */
 Pkglist		*malloc_pkglist(uint8_t);
 Plisthead	*rec_pkglist(const char *);
