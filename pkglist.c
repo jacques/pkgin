@@ -48,6 +48,7 @@ malloc_pkglist(uint8_t type)
 	/*!< Init all the things ! (http://knowyourmeme.com/memes/x-all-the-y) */
 	pkglist->type = type;
 	pkglist->full = NULL;
+	pkglist->simple = pkglist->full;
 	pkglist->name = NULL;
 	pkglist->version = NULL;
 	pkglist->depend = NULL;
