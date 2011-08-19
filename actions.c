@@ -557,11 +557,8 @@ pkgin_install(char **pkgargs, uint8_t do_inst)
 	XFREE(toinstall);
 	XFREE(toupgrade);
 	free_pkglist(impacthead, IMPACT);
-	XFREE(impacthead);
 	free_pkglist(removehead, DEPTREE);
-	XFREE(removehead);
 	free_pkglist(installhead, DEPTREE);
-	XFREE(installhead);
 
 	return rc;
 }

@@ -82,11 +82,15 @@ pdb_rec_list(void *param, int argc, char **argv, char **colname)
 	plist = malloc_pkglist(LIST);
 	XSTRDUP(plist->full, FULLPKGNAME);
 
+	/* it's convenient to have package name without version (autoremove.c) */
+	if (argc > 1)
+		XSTRDUP(plist->name, PKGNAME);
+
 	plist->size_pkg = 0;
 	plist->file_size = 0;
 
 	/* classic pkglist, has COMMENT and SIZEs */
-	if (argc > 1) {
+	if (argc > 2) {
 		if (COMMENT == NULL) {
 			/* COMMENT or SIZEs were empty
 			 * not a valid pkg_summary(5) entry, return
@@ -96,7 +100,6 @@ pdb_rec_list(void *param, int argc, char **argv, char **colname)
 			return PDB_OK;
 		}
 
-		XSTRDUP(plist->name, PKGNAME);
 		XSTRDUP(plist->version, PKGVERS);
 		XSTRDUP(plist->comment, COMMENT);
 		if (FILE_SIZE != NULL)
