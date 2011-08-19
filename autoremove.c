@@ -86,7 +86,7 @@ pkgin_autoremove()
 
 		XSTRDUP(premove->depend, pkglist->name);
 
-		SLIST_INSERT_HEAD(&removehead, premove, next);
+		SLIST_INSERT_HEAD(removehead, premove, next);
 
 		removenb++;
 	} /* SLIST_FOREACH plisthead */
