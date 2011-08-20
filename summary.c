@@ -614,7 +614,7 @@ update_db(int which, char **pkgkeep)
 				if ((plisthead =
 						rec_pkglist(LOCAL_PKGS_QUERY)) != NULL) {
 					SLIST_FOREACH(pkglist, plisthead, next)
-						if (!is_automatic_installed(pkglist->name)) {
+						if (!is_automatic_installed(pkglist->full)) {
 							snprintf(buf, BUFSIZ, KEEP_PKG,
 								pkglist->full);
 							pkgindb_doquery(buf, NULL, NULL);
