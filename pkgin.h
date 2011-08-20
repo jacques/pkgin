@@ -188,7 +188,6 @@ Plisthead	*rec_pkglist(const char *);
 int			pdb_rec_list(void *, int, char **, char **);
 int			pdb_rec_depends(void *, int, char **, char **);
 /* depends.c */
-char 		*match_dep_ext(char *, const char *);
 void		show_direct_depends(const char *);
 void		show_full_dep_tree(const char *, const char *, const char *);
 void 		full_dep_tree(const char *pkgname, const char *depquery,

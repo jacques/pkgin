@@ -289,7 +289,7 @@ pkg_impact(char **pkgargs)
 #ifndef DEBUG
 	static char	*icon = ICON_WAIT;
 #endif
-	Plisthead	*localplisthead, *remoteplisthead, *impacthead, *pdphead;
+	Plisthead	*localplisthead, *remoteplisthead, *impacthead, *pdphead = NULL;
 	Pkglist		*pimpact, *tmpimpact, *pdp;
 	char		**ppkgargs, *pkgname;
 #ifndef DEBUG
@@ -310,7 +310,6 @@ pkg_impact(char **pkgargs)
 		return NULL;
 	}
 
-	pdphead = init_head();
 	impacthead = init_head();
 
 	/* retreive impact list for all packages listed in the command line */
@@ -336,7 +335,8 @@ pkg_impact(char **pkgargs)
 			icon = icon - strlen(ICON_WAIT);
 #else
 		printf(MSG_CALCULATING_DEPS, pkgname);
-#endif	
+#endif
+		pdphead = init_head();
 		/* dependencies discovery */
 		full_dep_tree(pkgname, DIRECT_DEPS, pdphead);
 
@@ -358,9 +358,9 @@ pkg_impact(char **pkgargs)
 				}
 			}
 		} /* SLIST_FOREACH deps */
-	
-		/* finally, insert package itself */
-	
+		free_pkglist(pdphead, DEPTREE);
+
+		/* finally, insert package itself */	
 		pdp = malloc_pkglist(DEPTREE);
 	
 		XSTRDUP(pdp->name, pkgname);
