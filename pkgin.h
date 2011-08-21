@@ -194,6 +194,7 @@ void 		full_dep_tree(const char *pkgname, const char *depquery,
 	Plisthead	*pdphead);
 /* pkglist.c */
 Pkglist		*malloc_pkglist(uint8_t);
+void		free_pkglist_entry(Pkglist *, uint8_t);
 void		free_pkglist(Plisthead *, uint8_t);
 Plisthead	*init_head(void);
 void		list_pkgs(const char *, int);

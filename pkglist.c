@@ -73,6 +73,28 @@ malloc_pkglist(uint8_t type)
 }
 
 /**
+ * \fn free_pkglist_entry
+ *
+ * \brief free a Pkglist single entry
+ */
+void
+free_pkglist_entry(Pkglist *plist, uint8_t type)
+{
+	XFREE(plist->full);
+	XFREE(plist->name);
+	XFREE(plist->version);
+	XFREE(plist->depend);
+	switch (type) {
+	case LIST:
+		XFREE(plist->comment);
+		break;
+	case IMPACT:
+		XFREE(plist->old);
+	}
+	XFREE(plist);
+}
+
+/**
  * \fn free_pkglist
  *
  * \brief Free all types of package list
@@ -88,18 +110,8 @@ free_pkglist(Plisthead *plisthead, uint8_t type)
 	while (!SLIST_EMPTY(plisthead)) {
 		plist = SLIST_FIRST(plisthead);
 		SLIST_REMOVE_HEAD(plisthead, next);
-		XFREE(plist->full);
-		XFREE(plist->name);
-		XFREE(plist->version);
-		XFREE(plist->depend);
-		switch (type) {
-		case LIST:
-			XFREE(plist->comment);
-			break;
-		case IMPACT:
-			XFREE(plist->old);
-		}
-		XFREE(plist);
+
+		free_pkglist_entry(plist, type);
 	}
 	XFREE(plisthead);
 
