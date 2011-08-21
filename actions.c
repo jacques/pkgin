@@ -384,7 +384,7 @@ pkg_has_conflicts(Plisthead *conflictshead, Pkglist *pimpact)
 
 			XMALLOC(conflict_pkg, BUFSIZ * sizeof(char));
 			if (pkgindb_doquery(query,
-					pdb_get_value, conflict_pkg) == 0)
+					pdb_get_value, conflict_pkg) == PDB_OK)
 
 				printf(MSG_CONFLICT_PKG,
 					pimpact->full, conflict_pkg);
