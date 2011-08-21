@@ -1,7 +1,7 @@
 /* $Id$ */
 
 /*
- * Copyright (c) 2009, 2010 The NetBSD Foundation, Inc.
+ * Copyright (c) 2009, 2010, 2011 The NetBSD Foundation, Inc.
  * All rights reserved.
  *
  * This code is derived from software contributed to The NetBSD Foundation
@@ -156,8 +156,8 @@ show_pkg_keep(void)
 void
 pkg_keep(int type, char **pkgargs)
 {
-	Pkglist				*pkglist;
-	char				**pkeep, query[BUFSIZ];
+	Pkglist	*pkglist;
+	char   	**pkeep, query[BUFSIZ];
 
 	if (l_plisthead == NULL) /* no packages recorded */
 		return;
@@ -175,7 +175,7 @@ pkg_keep(int type, char **pkgargs)
 
 		} /* SLIST pkglist */
 
-		if (pkglist->name != NULL) {
+		if (pkglist != NULL && pkglist->name != NULL) {
 			switch (type) {
 			case KEEP:
 				printf(MSG_MARKING_PKG_KEEP, pkglist->full);
