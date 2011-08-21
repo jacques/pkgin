@@ -319,7 +319,8 @@ pkg_impact(char **pkgargs)
 			continue;
 
 		/* check if this is a multiple-version package (apache, ...)
-		 * and that the wanted package actually exists
+		 * and that the wanted package actually exists. Get pkgname
+		 * from unique_pkg, full package format.
 		 */
 		if ((pkgname = unique_pkg(*ppkgargs)) == NULL) {
 			/* package is not available on the repository */
@@ -338,7 +339,7 @@ pkg_impact(char **pkgargs)
 #endif
 		pdphead = init_head();
 		/* dependencies discovery */
-		full_dep_tree(pkgname, DIRECT_DEPS, pdphead);
+		full_dep_tree(pkgname, EXACT_DIRECT_DEPS, pdphead);
 
 		/* parse dependencies for pkgname */
 		SLIST_FOREACH(pdp, pdphead, next) {
