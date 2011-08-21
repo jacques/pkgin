@@ -127,6 +127,7 @@ break_depends(Plisthead *impacthead, Pkglist *pimpact)
 		 */
 		if (SLIST_EMPTY(fdphead)) {
 			free_pkglist(fdphead, DEPTREE);
+			fdphead = init_head();
 			full_dep_tree(rpkg, LOCAL_DIRECT_DEPS, fdphead);
 		}
 		XFREE(rpkg);

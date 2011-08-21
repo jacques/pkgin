@@ -181,7 +181,7 @@ extern char			pkgtools_flags[];
 extern Plisthead	*r_plisthead;
 extern Plisthead	*l_plisthead;
 
-#define REC_STATIC_PKGLIST(head, query)					\
+#define REC_GLOBAL_PKGLIST(head, query)					\
 	if (head == NULL) { head = rec_pkglist(query); }
 
 /* download.c*/
@@ -198,7 +198,7 @@ void		show_full_dep_tree(const char *, const char *, const char *);
 void 		full_dep_tree(const char *pkgname, const char *depquery,
 	Plisthead	*pdphead);
 /* pkglist.c */
-void		free_static_pkglists(void);
+void		free_global_pkglists(void);
 Pkglist		*malloc_pkglist(uint8_t);
 void		free_pkglist_entry(Pkglist *, uint8_t);
 void		free_pkglist(Plisthead *, uint8_t);

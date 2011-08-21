@@ -135,7 +135,7 @@ pdb_rec_depends(void *param, int argc, char **argv, char **colname)
 	if (argv == NULL)
 		return PDB_ERR;
 
-	/* dependency already recorded, do not insert on list  */
+	/* check if dependency is already recorded, do not insert on list  */
 	SLIST_FOREACH(pdp, pdphead, next)
 		if (strcmp(DEPS_PKGNAME, pdp->name) == 0)
 			/* proceed to next result */

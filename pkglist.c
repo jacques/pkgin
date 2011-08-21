@@ -34,7 +34,7 @@
 #include <regex.h>
 
 void
-free_static_pkglists()
+free_global_pkglists()
 {
 	free_pkglist(r_plisthead, LIST);
 	free_pkglist(l_plisthead, LIST);
