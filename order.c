@@ -195,6 +195,7 @@ order_upgrade_remove(Plisthead *impacthead)
 				XSTRDUP(pdp->depend, pimpact->old);
 				pdp->name = NULL; /* safety */
 				pdp->computed = pimpact->action; /* XXX: ugly */
+				pdp->level = pimpact->level; /* informative only */
 				SLIST_INSERT_HEAD(ordtreehead, pdp, next);
 			}
 		}
