@@ -127,9 +127,7 @@ upgrade_dep_deepness(Plisthead *impacthead)
 {
 	char		*pkgname, *p;
 	Pkglist		*pimpact;
-    Plisthead	*lvldeptree, *plisthead;
-
-	plisthead = rec_pkglist(LOCAL_PKGS_QUERY);
+    Plisthead	*lvldeptree;
 
 	lvldeptree = init_head();
 
@@ -137,7 +135,7 @@ upgrade_dep_deepness(Plisthead *impacthead)
 	SLIST_FOREACH(pimpact, impacthead, next) {
 		if (pimpact->level == -1) { /* unique package, just return */
 			pimpact->level = 0;
-			goto endupdep;
+			return;
 		}
 
 		/* only deal with TOUPGRADE and TOREMOVE */
@@ -165,9 +163,6 @@ upgrade_dep_deepness(Plisthead *impacthead)
 		XFREE(pkgname);
 		free_pkglist(lvldeptree, DEPTREE);
 	}
-
-endupdep:
-	free_pkglist(plisthead, LIST);
 }
 
 /**
