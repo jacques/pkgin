@@ -181,9 +181,6 @@ extern char			pkgtools_flags[];
 extern Plisthead	*r_plisthead;
 extern Plisthead	*l_plisthead;
 
-#define REC_GLOBAL_PKGLIST(head, query)					\
-	if (head == NULL) { head = rec_pkglist(query); }
-
 /* download.c*/
 Dlfile		*download_file(char *, time_t *);
 /* summary.c */

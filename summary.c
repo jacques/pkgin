@@ -587,8 +587,7 @@ update_db(int which, char **pkgkeep)
 
 			/* re-read local packages list as it may have changed */
 			free_pkglist(l_plisthead, LIST);
-			l_plisthead = init_head();
-			REC_GLOBAL_PKGLIST(l_plisthead, LOCAL_PKGS_QUERY);
+			l_plisthead = rec_pkglist(LOCAL_PKGS_QUERY);
 
 			/* restore keep-list */
 			if (keeplisthead != NULL) {
