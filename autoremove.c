@@ -52,14 +52,16 @@ pkgin_autoremove()
 	 * test if there's any keep package and record them
 	 * KEEP_LOCAL_PKGS returns full packages names
 	 */
-	if (l_plisthead == NULL)
+	if ((plisthead = rec_pkglist(KEEP_LOCAL_PKGS)) == NULL)
 		errx(EXIT_FAILURE, MSG_NO_PKGIN_PKGS, getprogname());
 
 	keephead = init_head();
 
 	/* record keep packages deps  */
-	SLIST_FOREACH(pkglist, l_plisthead, next)
+	SLIST_FOREACH(pkglist, plisthead, next)
 		full_dep_tree(pkglist->name, LOCAL_DIRECT_DEPS, keephead);
+
+	free_pkglist(plisthead, LIST);
 
 	/* record unkeep packages */
 	if ((plisthead = rec_pkglist(NOKEEP_LOCAL_PKGS)) == NULL) {
@@ -76,8 +78,7 @@ pkgin_autoremove()
 		exists = 0;
 		/* is it a dependence for keepable packages ? */
 		SLIST_FOREACH(pdp, keephead, next) {
-			if (strncmp(pdp->depend, pkglist->name,
-					strlen(pkglist->name)) == 0) {
+			if (strcmp(pdp->name, pkglist->name) == 0) {
 				exists = 1;
 				break;
 			}
