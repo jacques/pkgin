@@ -339,7 +339,7 @@ pkg_impact(char **pkgargs)
 #endif
 		pdphead = init_head();
 		/* dependencies discovery */
-		full_dep_tree(pkgname, EXACT_DIRECT_DEPS, pdphead);
+		full_dep_tree(pkgname, DIRECT_DEPS, pdphead);
 
 		/* parse dependencies for pkgname */
 		SLIST_FOREACH(pdp, pdphead, next) {
