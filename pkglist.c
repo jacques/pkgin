@@ -141,6 +141,27 @@ init_head(void)
 	return plisthead;
 }
 
+/**
+ * \fn rec_pkglist
+ *
+ * Record package list to SLIST
+ */
+Plisthead *
+rec_pkglist(const char *pkgquery)
+{
+	Plisthead	*plisthead;
+
+	XMALLOC(plisthead, sizeof(Plisthead));
+
+	SLIST_INIT(plisthead);
+
+	if (pkgindb_doquery(pkgquery, pdb_rec_list, plisthead) == 0)
+		return plisthead;
+
+	XFREE(plisthead);
+	return NULL;
+}
+
 /* compare pkg version */
 static int
 pkg_is_installed(Plisthead *plisthead, Pkglist *pkg)

@@ -32,27 +32,6 @@
 
 #include "pkgin.h"
 
-/**
- * \fn rec_pkglist
- *
- * Record package list to SLIST
- */
-Plisthead *
-rec_pkglist(const char *pkgquery)
-{
-	Plisthead	*plisthead;
-
-	XMALLOC(plisthead, sizeof(Plisthead));
-
-	SLIST_INIT(plisthead);
-
-	if (pkgindb_doquery(pkgquery, pdb_rec_list, plisthead) == 0)
-		return plisthead;
-
-	XFREE(plisthead);
-	return NULL;
-}
-
 /* SQLite results columns */
 #define FULLPKGNAME	argv[0]
 #define PKGNAME		argv[1]
