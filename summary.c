@@ -586,8 +586,8 @@ update_db(int which, char **pkgkeep)
 			free_list(summary);
 
 			/* re-read local packages list as it may have changed */
-			free_pkglist(l_plisthead, LIST);
-			l_plisthead = rec_pkglist(LOCAL_PKGS_QUERY);
+			free_global_pkglists();
+			init_global_pkglists();
 
 			/* restore keep-list */
 			if (keeplisthead != NULL) {
@@ -615,7 +615,7 @@ update_db(int which, char **pkgkeep)
 				 * probably a fresh install or a rebuild
 				 * restore keep flags with pkgdb informations
 				 */
-				SLIST_FOREACH(pkglist, l_plisthead, next)
+				SLIST_FOREACH(pkglist, &l_plisthead, next)
 					if (!is_automatic_installed(pkglist->full)) {
 						snprintf(buf, BUFSIZ, KEEP_PKG,
 							pkglist->full);
