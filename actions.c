@@ -410,7 +410,7 @@ pkgin_install(char **pkgargs, uint8_t do_inst)
 	Pkglist		*pimpact;
 	Plisthead	*impacthead; /* impact head */
 	Plisthead	*removehead = NULL, *installhead = NULL;
-	Plisthead	*conflictshead; /* conflicts head */
+	Plisthead	*conflictshead = NULL; /* conflicts head */
 	char		*toinstall = NULL, *toupgrade = NULL, *toremove = NULL;
 	char		pkgpath[BUFSIZ], h_psize[H_BUF], h_fsize[H_BUF];
 	struct stat	st;
