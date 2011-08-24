@@ -65,8 +65,12 @@ map_pkg_to_dep(Plisthead *plisthead, char *depname)
 	Pkglist	*plist;
 
 	SLIST_FOREACH(plist, plisthead, next)
-		if (pkg_match(depname, plist->full))
+		if (pkg_match(depname, plist->full)) {
+#ifdef DEBUG
+			printf("match ! %s -> %s\n", depname, plist->full);
+#endif
 			return plist;
+		}
 
 	return NULL;
 }
