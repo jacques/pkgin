@@ -740,8 +740,6 @@ pkgin_upgrade(int uptype)
 		 * in order to restore them
 		 */
 		if (uptype == UPGRADE_ALL) {
-
-			free_pkglist(&localplisthead, LIST);
 			free_list(pkgargs);
 			/* record keep list */
 			pkgargs = record_upgrades(keeplisthead);
