@@ -140,7 +140,8 @@ main(int argc, char *argv[])
 	ch = find_cmd(argv[0]);
 
 	/* we need packages lists for almost everything */
-	init_global_pkglists();
+	if (ch != PKG_UPDT_CMD)
+		init_global_pkglists();
 
 	/* fill pkgtools flags */
 	if (verbosity)
