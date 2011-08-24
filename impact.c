@@ -288,7 +288,7 @@ pkg_impact(char **pkgargs)
 #ifndef DEBUG
 	static char	*icon = ICON_WAIT;
 #endif
-	Plisthead	*impacthead, *pdphead;
+	Plisthead	*impacthead, *pdphead = NULL;
 	Pkglist		*pimpact, *tmpimpact, *pdp;
 	char		**ppkgargs, *pkgname;
 #ifndef DEBUG
