@@ -595,7 +595,7 @@ update_db(int which, char **pkgkeep)
 					snprintf(buf, BUFSIZ, KEEP_PKG, pkglist->full);
 					pkgindb_doquery(buf, NULL, NULL);
 				}
-				free_pkglist(keeplisthead, LIST);
+				free_pkglist(&keeplisthead, LIST);
 
 				/*
 				 * packages are installed "manually" by pkgin_install()
@@ -607,7 +607,7 @@ update_db(int which, char **pkgkeep)
 					SLIST_FOREACH(pkglist, nokeeplisthead, next)
 						mark_as_automatic_installed(pkglist->full, 1);
 
-					free_pkglist(nokeeplisthead, LIST);
+					free_pkglist(&nokeeplisthead, LIST);
 				}
 			} else { /* empty keep list */
 				/*

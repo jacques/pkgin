@@ -56,7 +56,7 @@ pdb_rec_list(void *param, int argc, char **argv, char **colname)
 	 * pkg_summary(5), return
 	 */
 	if (FULLPKGNAME == NULL)
-		return PDB_OK;
+		return PDB_ERR;
 
 	plist = malloc_pkglist(LIST);
 	XSTRDUP(plist->full, FULLPKGNAME);

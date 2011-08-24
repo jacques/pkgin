@@ -109,7 +109,7 @@ show_direct_depends(const char *pkgarg)
 			else
 				printf("\t%s\n", pdp->depend);
 		}
-		free_pkglist(deptreehead, DEPTREE);
+		free_pkglist(&deptreehead, DEPTREE);
 	}
 	XFREE(pkgname);
 }
@@ -151,5 +151,5 @@ show_full_dep_tree(const char *pkgarg, const char *depquery, const char *msg)
 	}
 
 	XFREE(pkgname);
-	free_pkglist(deptreehead, DEPTREE);
+	free_pkglist(&deptreehead, DEPTREE);
 }
