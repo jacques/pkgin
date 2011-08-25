@@ -90,7 +90,7 @@ pkgin_autoremove()
 		/* package was not found, insert it on removelist */
 		premove = malloc_pkglist(DEPTREE);
 
-		XSTRDUP(premove->depend, pkglist->name);
+		XSTRDUP(premove->depend, pkglist->full);
 
 		SLIST_INSERT_HEAD(removehead, premove, next);
 
