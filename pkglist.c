@@ -128,12 +128,8 @@ init_global_pkglists()
 	SLIST_INIT(&r_plisthead);
 	SLIST_INIT(&l_plisthead);
 
-	if (pkgindb_doquery(REMOTE_PKGS_QUERY,
-			pdb_rec_list, &r_plisthead) == PDB_ERR)
-		errx(EXIT_FAILURE, MSG_EMPTY_AVAIL_PKGLIST);
-	if (pkgindb_doquery(LOCAL_PKGS_QUERY,
-			pdb_rec_list, &l_plisthead) == PDB_ERR)
-		errx(EXIT_FAILURE, MSG_EMPTY_LOCAL_PKGLIST);
+	pkgindb_doquery(REMOTE_PKGS_QUERY, pdb_rec_list, &r_plisthead);
+	pkgindb_doquery(LOCAL_PKGS_QUERY, pdb_rec_list, &l_plisthead);
 }
 
 static void
