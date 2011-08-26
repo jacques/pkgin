@@ -96,7 +96,7 @@
 
 /* autoremove.c */
 #define MSG_AUTOREMOVE_WARNING "\
-in order to remove packages from the autoremove list, flag those with the -k modifier.\n"
+in order to remove packages from the autoremove list, flag those with the `keep' action.\n"
 #define MSG_NO_PKGIN_PKGS "no packages have been installed with %s"
 #define MSG_ALL_KEEP_PKGS "all packages are marked as \"keepable\"."
 #define MSG_AUTOREMOVE_PKGS "%d packages to be autoremoved: %s\n"
