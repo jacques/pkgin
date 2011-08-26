@@ -153,7 +153,9 @@ show_pkg_keep(void)
 	free_pkglist(&plisthead, LIST);
 }
 
-/* flag packages in pkgargs as non or autoremovable */
+/**
+ * \brief flag packages in pkgargs as non or autoremovable
+ */
 void
 pkg_keep(int type, char **pkgargs)
 {
