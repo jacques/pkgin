@@ -60,6 +60,10 @@ extern const char UPDATE_PKGDB_MTIME[];
 extern const char EXISTS_REPO[];
 extern const char INSERT_REPO[];
 extern const char UPDATE_REPO_MTIME[];
+extern const char INSERT_SINGLE_VALUE[];
+extern const char INSERT_DEPENDS_VALUES[];
+extern const char UNIQUE_EXACT_PKG[];
+extern const char UNIQUE_PKG[];
 
 #define PDB PKGIN_DB"/pkgin.db"
 

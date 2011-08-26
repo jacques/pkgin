@@ -89,6 +89,7 @@ pdb_get_value(void *param, int argc, char **argv, char **colname)
 
 	if (argv != NULL) {
 		XSTRCPY(value, argv[0]);
+
 		return PDB_OK;
 	}
 
