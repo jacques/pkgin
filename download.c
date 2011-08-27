@@ -53,7 +53,7 @@ download_file(char *str_url, time_t *db_mtime)
 
 	url = fetchParseURL(str_url);
 
-	if ((f = fetchXGet(url, &st, "")) == NULL)
+	if (url == NULL || (f = fetchXGet(url, &st, "")) == NULL)
 		return NULL;
 
 	if (st.size == -1) { /* could not obtain file size */
