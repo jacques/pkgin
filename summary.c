@@ -615,12 +615,12 @@ update_db(int which, char **pkgkeep)
 				 * probably a fresh install or a rebuild
 				 * restore keep flags with pkgdb informations
 				 */
-				SLIST_FOREACH(pkglist, &l_plisthead, next)
+				SLIST_FOREACH(pkglist, &l_plisthead, next) {
 					if (!is_automatic_installed(pkglist->full)) {
-						snprintf(buf, BUFSIZ, KEEP_PKG,
-							pkglist->full);
+						snprintf(buf, BUFSIZ, KEEP_PKG, pkglist->name);
 						pkgindb_doquery(buf, NULL, NULL);
 					}
+				}
 			}
 
 			/* insert new keep list if there's any */
