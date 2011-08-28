@@ -168,7 +168,7 @@ pkg_keep(int type, char **pkgargs)
 	/* parse packages by their command line names */
 	for (pkeep = pkgargs; *pkeep != NULL; pkeep++) {
 		/* find real package name */
-		if ((pkgname = unique_pkg(*pkeep)) != NULL) {
+		if ((pkgname = unique_pkg(*pkeep, LOCAL_PKG)) != NULL) {
 
 			trunc_str(pkgname, '-', STR_BACKWARD);
 

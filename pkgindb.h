@@ -65,6 +65,9 @@ extern const char INSERT_DEPENDS_VALUES[];
 extern const char UNIQUE_EXACT_PKG[];
 extern const char UNIQUE_PKG[];
 
+#define LOCAL_PKG "LOCAL_PKG"
+#define REMOTE_PKG "REMOTE_PKG"
+
 #define PDB PKGIN_DB"/pkgin.db"
 
 const char	*pdb_version(void);

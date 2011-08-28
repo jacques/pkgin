@@ -390,7 +390,7 @@ update_col(struct Summary sum, int pkgid, char *line)
 	}
 }
 
-#define NOVERSION "-0"
+#define NOVERSION "-0.0"
 
 static void
 insert_summary(struct Summary sum, char **summary, char *cur_repo)
@@ -440,7 +440,7 @@ insert_summary(struct Summary sum, char **summary, char *cur_repo)
 		/* PKGNAME record, should always be true  */
 		if ((pkgname = field_record("PKGNAME", *psum)) != NULL) {
 
-			/* some rare WIP packages have no version */
+			/* some rare packages have no version */
 			if (!exact_pkgfmt(pkgname)) {
 				snprintf(tmpname, BUFSIZ, "%s%s", pkgname, NOVERSION);
 				XFREE(pkgname);

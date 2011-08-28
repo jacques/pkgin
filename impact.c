@@ -312,7 +312,7 @@ pkg_impact(char **pkgargs)
 		 * and that the wanted package actually exists. Get pkgname
 		 * from unique_pkg, full package format.
 		 */
-		if ((pkgname = unique_pkg(*ppkgargs)) == NULL) {
+		if ((pkgname = unique_pkg(*ppkgargs, REMOTE_PKG)) == NULL) {
 			/* package is not available on the repository */
 			printf(MSG_PKG_NOT_AVAIL, *ppkgargs);
 			continue;

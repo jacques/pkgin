@@ -38,7 +38,7 @@
  * Returns greatest version package matching in full package name form
  */
 char *
-unique_pkg(const char *pkgname)
+unique_pkg(const char *pkgname, const char *dest)
 {
 	char	*u_pkg = NULL, query[BUFSIZ];
 
@@ -46,9 +46,9 @@ unique_pkg(const char *pkgname)
 
 	/* record if it's a versionned pkgname */
 	if (exact_pkgfmt(pkgname))
-		snprintf(query, BUFSIZ, UNIQUE_EXACT_PKG, pkgname);
+		snprintf(query, BUFSIZ, UNIQUE_EXACT_PKG, dest, pkgname);
 	else
-		snprintf(query, BUFSIZ, UNIQUE_PKG, pkgname);
+		snprintf(query, BUFSIZ, UNIQUE_PKG, dest, pkgname);
 
 	if (pkgindb_doquery(query, pdb_get_value, u_pkg) != PDB_OK) {
 		XFREE(u_pkg);

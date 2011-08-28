@@ -90,7 +90,7 @@ show_direct_depends(const char *pkgarg)
 		return;
 	}
 
-	if ((pkgname = unique_pkg(pkgarg)) == NULL) {
+	if ((pkgname = unique_pkg(pkgarg, REMOTE_PKG)) == NULL) {
 		fprintf(stderr, MSG_PKG_NOT_AVAIL, pkgname);
 		return;
 	}
@@ -126,7 +126,7 @@ show_full_dep_tree(const char *pkgarg, const char *depquery, const char *msg)
 		XSTRDUP(pkgname, pkgarg);
 	} else {
 		plisthead = &r_plisthead;
-		pkgname = unique_pkg(pkgarg);
+		pkgname = unique_pkg(pkgarg, REMOTE_PKG);
 	}
 
 	if (pkgname == NULL) {
