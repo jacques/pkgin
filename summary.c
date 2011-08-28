@@ -601,7 +601,7 @@ update_db(int which, char **pkgkeep)
 			/* restore keep-list */
 			if (keeplisthead != NULL) {
 				SLIST_FOREACH(pkglist, keeplisthead, next) {
-					snprintf(buf, BUFSIZ, KEEP_PKG, pkglist->full);
+					snprintf(buf, BUFSIZ, KEEP_PKG, pkglist->name);
 					pkgindb_doquery(buf, NULL, NULL);
 				}
 				free_pkglist(&keeplisthead, LIST);
