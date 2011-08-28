@@ -51,7 +51,7 @@ full_dep_tree(const char *pkgname, const char *depquery, Plisthead *pdphead)
 		 */
 		if (exact_pkgfmt(pkgname))
 			snprintf(query, BUFSIZ, EXACT_DIRECT_DEPS, pkgname);
-	}
+	} /* else, LOCAL_REVERSE_DEPS */
 
 	level = 1;
 

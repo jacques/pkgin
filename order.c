@@ -190,6 +190,9 @@ order_upgrade_remove(Plisthead *impacthead)
 			if ((pimpact->action == TOUPGRADE ||  pimpact->action == TOREMOVE)
 				&& pimpact->level == i) {
 
+				if (pkg_in_impact(ordtreehead, pimpact->old))
+					continue;
+
 				pdp = malloc_pkglist(DEPTREE);
 
 				XSTRDUP(pdp->depend, pimpact->old);
@@ -231,6 +234,9 @@ order_install(Plisthead *impacthead)
 		SLIST_FOREACH(pimpact, impacthead, next) {
 			if ((pimpact->action == TOUPGRADE ||
 					pimpact->action == TOINSTALL) && pimpact->level == i) {
+
+				if (pkg_in_impact(ordtreehead, pimpact->full))
+					continue;
 
 				pdp = malloc_pkglist(DEPTREE);
 

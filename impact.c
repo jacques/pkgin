@@ -269,7 +269,7 @@ deps_impact(Plisthead *impacthead, Pkglist *pdp)
 /**
  * is pkgname already in impact list ?
  */
-static uint8_t
+uint8_t
 pkg_in_impact(Plisthead *impacthead, char *depname)
 {
 	Pkglist *pimpact;
