@@ -153,6 +153,20 @@ pkgindb_init()
 	pkgindb_doquery(CREATE_DRYDB, NULL, NULL);
 }
 
+/**
+ * \brief destroy the database and re-create it (upgrade)
+ */
+void
+pkgindb_reset()
+{
+	pkgindb_close();
+
+	if (unlink(PDB) < 0)
+		err(EXIT_FAILURE, "could not delete database file %s\n", PDB);
+
+	pkgindb_init();
+}
+
 #define PKGDB_PATH PKG_DBDIR"/pkgdb.byfile.db"
 
 int

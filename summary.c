@@ -79,6 +79,7 @@ typedef struct Insertlist {
 
 SLIST_HEAD(, Insertlist) inserthead;
 
+static void upgrade_database(void);
 static char	**fetch_summary(char *url);
 static void	freecols(void);
 static void	free_insertlist(void);
@@ -570,6 +571,8 @@ update_db(int which, char **pkgkeep)
 	Pkglist		*pkglist;
 	char		**summary = NULL, **prepos, buf[BUFSIZ];
 
+	upgrade_database();
+
 	for (i = 0; i < 2; i++) {
 
 		switch (sumsw[i].type) {
@@ -677,4 +680,16 @@ update_db(int which, char **pkgkeep)
 		freecols();
 	}
 
+}
+
+static void
+upgrade_database()
+{
+	if (pkgindb_doquery(COMPAT_CHECK, NULL, NULL) == PDB_ERR) {
+		printf(MSG_DATABASE_NOT_COMPAT);
+		if (!check_yesno())
+			errx(EXIT_FAILURE, MSG_DATABASE_OUTDATED);
+
+		pkgindb_reset();
+	}
 }
