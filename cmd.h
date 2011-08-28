@@ -68,5 +68,7 @@ static struct command {
 	  PKG_CLEAN_CMD },
 	{ "autoremove", "ar", "Autoremove orphan dependencies.",
 	  PKG_AUTORM_CMD },
+	{ "tonic", "to", "Gin Tonic recipe.",
+	  PKG_GINTO_CMD },
 	{ NULL, NULL, NULL, 0 }
 };

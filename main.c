@@ -38,6 +38,7 @@ static void	usage(void);
 static void	split_repos(void);
 static int	find_cmd(const char *);
 static void	missing_param(int, int, const char *);
+static void ginto(void);
 
 uint8_t		yesflag = 0, noflag = 0, force_update = 0, force_reinstall = 0;
 uint8_t		verbosity = 0, package_version = 0;
@@ -209,6 +210,9 @@ main(int argc, char *argv[])
 	case PKG_CLEAN_CMD: /* clean pkgin's packages cache */
 		clean_cache();
 		break;
+	case PKG_GINTO_CMD: /* Miod's request */
+		ginto();
+		break;
 	default:
 		usage();
 		/* NOTREACHED */
@@ -297,4 +301,10 @@ split_repos()
 void
 cleanup(int i)
 {
+}
+
+static void
+ginto()
+{
+	printf("* 2 oz gin\n* 5 oz tonic water\n* 1 lime wedge\n");
 }
