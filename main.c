@@ -260,7 +260,9 @@ usage()
 	printf(MSG_CMDS_SHORTCUTS);
 
 	for (i = 0; cmd[i].name != NULL; i++)
-		printf("%s (%s) -  %s\n", cmd[i].name, cmd[i].shortcut, cmd[i].descr);
+		if (cmd[i].cmdtype != PKG_GINTO_CMD)
+			printf("%s (%s) -  %s\n",
+				cmd[i].name, cmd[i].shortcut, cmd[i].descr);
 
 	exit(EXIT_FAILURE);
 }
