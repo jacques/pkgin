@@ -341,7 +341,7 @@ pkg_impact(char **pkgargs)
 			/* compare needed deps with local packages */
 			if (!deps_impact(impacthead, pdp)) {
 				/* there was a versionning mismatch, proceed ? */
-				if (!check_yesno()) {
+				if (!check_yesno(DEFAULT_NO)) {
 					free_pkglist(&impacthead, IMPACT);
 				
 					goto impactend; /* avoid free's repetition */

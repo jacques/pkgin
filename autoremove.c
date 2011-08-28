@@ -114,7 +114,7 @@ pkgin_autoremove()
 
 		printf(MSG_AUTOREMOVE_WARNING);
 		printf(MSG_AUTOREMOVE_PKGS, removenb, toremove);
-		if (check_yesno()) {
+		if (check_yesno(DEFAULT_YES)) {
 			SLIST_FOREACH(premove, orderedhead, next) {
 				printf(MSG_REMOVING, premove->depend);
 #ifdef DEBUG
