@@ -41,7 +41,7 @@
 #define MSG_PKG_ARGS_UNKEEP "specify at least one package to unkeep"
 #define MSG_MISSING_SRCH "missing search string"
 
-#define MSG_USAGE "Usage: %s [-cdfFhlnPvVy] command [package ...]\n"
+#define MSG_USAGE "Usage: %s [-cdfFhlnPtvVy] command [package ...]\n"
 #define MSG_CMDS_SHORTCUTS "\nCommands and shortcuts:\n"
 
 #define MSG_CHROOT_FAILED "Unable to chroot"
@@ -49,6 +49,7 @@
 
 #define MSG_MISSING_PKG_REPOS \
 	PKGIN_CONF"/"REPOS_FILE" has no repositories or does not exist.\nNo PKG_REPOS variable to fallback to."
+#define MSG_CANT_OPEN_TRACEFILE "Couldn't open %s for writing."
 
 /* actions.c */
 #define MSG_PROCEED_YES "proceed ? [Y/n] "

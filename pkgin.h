@@ -111,6 +111,8 @@
 #define ANSW_NO 0
 #define ANSW_YES 1
 
+#define TRACE(fmt...) if (tracefp != NULL) fprintf(tracefp, fmt)
+
 typedef struct Dlfile {
 	char *buf;
 	size_t size;
@@ -187,6 +189,7 @@ extern char  		lslimit;
 extern char			pkgtools_flags[];
 extern Plisthead	r_plisthead;
 extern Plisthead	l_plisthead;
+extern FILE			*tracefp;
 
 /* download.c*/
 Dlfile		*download_file(char *, time_t *);
