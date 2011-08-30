@@ -213,6 +213,12 @@ main(int argc, char *argv[])
 	case PKG_CLEAN_CMD: /* clean pkgin's packages cache */
 		clean_cache();
 		break;
+	case PKG_EXPORT_CMD: /* export PKGPATH for keep packages */
+		export_keep();
+		break;
+	case PKG_IMPORT_CMD: /* import for keep packages and install them */
+		import_keep();
+		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();
 		break;

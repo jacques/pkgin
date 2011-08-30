@@ -100,6 +100,8 @@
 #define PKG_SRCH_CMD 13
 #define PKG_CLEAN_CMD 14
 #define PKG_AUTORM_CMD 15
+#define PKG_EXPORT_CMD 16
+#define PKG_IMPORT_CMD 17
 #define PKG_GINTO_CMD 255
 
 #define PKG_EQUAL '='
@@ -243,5 +245,8 @@ char		*get_pkgname_from_depend(char *);
 int			exact_pkgfmt(const char *);
 char		*find_exact_pkg(Plisthead *, const char *);
 int			version_check(char *, char *);
+/* selection.c */
+void		export_keep(void);
+void		import_keep(void);
 
 #endif
