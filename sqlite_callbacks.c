@@ -119,7 +119,7 @@ pdb_rec_depends(void *param, int argc, char **argv, char **colname)
 		if (strcmp(DEPS_PKGNAME, pdp->name) == 0) {
 			TRACE(" < dependency %s already recorded\n", pdp->name);
 			/* proceed to next result */
-			return PDB_OK;
+			return PDB_ERR;
 		}
 
 	deptree = malloc_pkglist(DEPTREE);
