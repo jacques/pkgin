@@ -116,9 +116,11 @@ pdb_rec_depends(void *param, int argc, char **argv, char **colname)
 
 	/* check if dependency is already recorded, do not insert on list  */
 	SLIST_FOREACH(pdp, pdphead, next)
-		if (strcmp(DEPS_PKGNAME, pdp->name) == 0)
+		if (strcmp(DEPS_PKGNAME, pdp->name) == 0) {
+			TRACE(" < dependency %s already recorded\n", pdp->name);
 			/* proceed to next result */
 			return PDB_OK;
+		}
 
 	deptree = malloc_pkglist(DEPTREE);
 	XSTRDUP(deptree->depend, DEPS_FULLPKG);

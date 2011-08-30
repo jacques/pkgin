@@ -64,6 +64,8 @@ extern const char INSERT_SINGLE_VALUE[];
 extern const char INSERT_DEPENDS_VALUES[];
 extern const char UNIQUE_EXACT_PKG[];
 extern const char UNIQUE_PKG[];
+extern const char EXPORT_KEEP_LIST[];
+extern const char GET_PKGNAME_BY_PKGPATH[];
 extern const char COMPAT_CHECK[];
 
 #define LOCAL_PKG "LOCAL_PKG"

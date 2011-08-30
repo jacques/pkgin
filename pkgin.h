@@ -247,6 +247,6 @@ char		*find_exact_pkg(Plisthead *, const char *);
 int			version_check(char *, char *);
 /* selection.c */
 void		export_keep(void);
-void		import_keep(void);
+void		import_keep(uint8_t);
 
 #endif
