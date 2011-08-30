@@ -33,6 +33,7 @@
 /* main.c */
 #define MSG_MISSING_CMD "missing command"
 #define MSG_MISSING_PKGNAME "missing package name"
+#define MSG_MISSING_FILENAME "missing file name"
 #define MSG_FULLDEPTREE "full dependency tree for %s\n"
 #define MSG_REVDEPTREE "local reverse dependency tree for %s\n"
 #define MSG_PKG_ARGS_INST "specify at least one package to install"

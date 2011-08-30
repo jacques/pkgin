@@ -217,7 +217,8 @@ main(int argc, char *argv[])
 		export_keep();
 		break;
 	case PKG_IMPORT_CMD: /* import for keep packages and install them */
-		import_keep(do_inst);
+		missing_param(argc, 2, MSG_MISSING_FILENAME);
+		import_keep(do_inst, argv[1]);
 		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();

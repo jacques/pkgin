@@ -70,7 +70,7 @@ static struct command {
 	  PKG_AUTORM_CMD },
 	{ "export", "ex", "Export \"non auto-removable\" packages to stdout.",
 	  PKG_EXPORT_CMD },
-	{ "import", "im", "Import \"non auto-removable\" package list from stdin.",
+	{ "import", "im", "Import \"non auto-removable\" package list from file.",
 	  PKG_IMPORT_CMD },
 	{ "tonic", "to", "Gin Tonic recipe.",
 	  PKG_GINTO_CMD },
