@@ -245,6 +245,7 @@ char		*get_pkgname_from_depend(char *);
 int			exact_pkgfmt(const char *);
 char		*find_exact_pkg(Plisthead *, const char *);
 int			version_check(char *, char *);
+char		**glob_to_pkgarg(char **);
 /* selection.c */
 void		export_keep(void);
 void		import_keep(uint8_t, const char *);

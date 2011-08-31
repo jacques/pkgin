@@ -320,9 +320,6 @@ pkg_impact(char **pkgargs)
 	/* retreive impact list for all packages listed in the command line */
 	for (ppkgargs = pkgargs; *ppkgargs != NULL; ppkgargs++) {
 
-		if (strpbrk(*ppkgargs, "*%") != NULL) /* avoid SQL jokers */
-			continue;
-
 		/* check if this is a multiple-version package (apache, ...)
 		 * and that the wanted package actually exists. Get pkgname
 		 * from unique_pkg, full package format.
