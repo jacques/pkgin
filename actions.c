@@ -66,7 +66,7 @@ check_yesno(uint8_t default_answer)
 	if ((c = getchar()) == answer[reverse_answer].charval)
 		r = answer[reverse_answer].numval;
 	else
-		return answer[default_answer].numval;
+		r = answer[default_answer].numval;
 
 	/* avoid residual char */
 	while((c = getchar()) != '\n' && c != EOF)
