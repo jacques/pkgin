@@ -54,11 +54,12 @@ full_dep_tree(const char *pkgname, const char *depquery, Plisthead *pdphead)
 	} /* else, LOCAL_REVERSE_DEPS */
 
 	TRACE("[>]-entering depends\n");
-	TRACE("[+]-dependencies for %s (query: %s)\n", pkgname, query);
 
 	/* getting direct dependencies */
 	if (query[0] == '\0')
 	    	snprintf(query, BUFSIZ, depquery, pkgname);
+
+	TRACE("[+]-dependencies for %s (query: %s)\n", pkgname, query);
 
 	/* first level of dependency for pkgname */
 	if (pkgindb_doquery(query, pdb_rec_depends, pdphead) == PDB_ERR)
