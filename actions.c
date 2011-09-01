@@ -69,8 +69,9 @@ check_yesno(uint8_t default_answer)
 		r = answer[default_answer].numval;
 
 	/* avoid residual char */
-	while((c = getchar()) != '\n' && c != EOF)
-		continue;
+	if (c != '\n')
+		while((c = getchar()) != '\n' && c != EOF)
+			continue;
 
 	return r;
 }
