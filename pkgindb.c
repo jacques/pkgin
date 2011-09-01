@@ -172,7 +172,7 @@ pkgindb_reset()
 int
 pkg_db_mtime()
 {
-	uint8_t		pkgindb_present = 1;
+	uint8_t		pkgdb_present = 1;
 	struct stat	st;
 	time_t	   	db_mtime = 0;
 	char		*str_mtime, query[BUFSIZ];
