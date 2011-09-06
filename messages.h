@@ -147,3 +147,4 @@ please re-run %s with a package name matching one of the following:\n"
 
 /* pkg_check.c */
 #define MSG_NO_PROV_REQ "Nothing %s by %s.\n"
+#define MSG_PKG_PROV_REQ "Packages %s by %s:\n"
