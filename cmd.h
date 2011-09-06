@@ -72,6 +72,10 @@ static struct command {
 	  PKG_EXPORT_CMD },
 	{ "import", "im", "Import \"non auto-removable\" package list from file.",
 	  PKG_IMPORT_CMD },
+	{ "provides", "prov", "Show what a package provides.",
+	  PKG_SHPROV_CMD },
+	{ "requires", "req", "Show what a package requires.",
+	  PKG_SHREQ_CMD },
 	{ "tonic", "to", "Gin Tonic recipe.",
 	  PKG_GINTO_CMD },
 	{ NULL, NULL, NULL, 0 }

@@ -63,8 +63,8 @@
 #define MSG_INSTALLING "installing %s...\n"
 #define MSG_REQT_NOT_PRESENT \
 	"%s, needed by %s is not present in this system.\n"
-#define MSG_REQT_NOT_PRESENT_BUT \
-	"warning: %s is not present in this system (may be installed by this package)\n"
+#define MSG_REQT_NOT_PRESENT_DEPS \
+	"warning: %s is not present in this system nor package's dependencies\n"
 #define MSG_CONFLICT_PKG \
 	"%s (to be installed) conflicts with installed package %s.\n"
 #define MSG_NOTHING_TO_DO "nothing to do.\n"
@@ -144,3 +144,6 @@ please re-run %s with a package name matching one of the following:\n"
 
 /* selection.c */
 #define MSG_EMPTY_IMPORT_LIST "Empty import list."
+
+/* pkg_check.c */
+#define MSG_NO_PROV_REQ "Nothing %s by %s.\n"

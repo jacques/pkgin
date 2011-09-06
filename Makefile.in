@@ -4,7 +4,8 @@ PROG=		pkgin
 VERSION=	@PACKAGE_VERSION@
 SRCS=		main.c summary.c tools.c pkgindb.c depends.c actions.c \
 		pkglist.c download.c order.c impact.c autoremove.c fsops.c \
-		pkgindb_queries.c pkg_str.c sqlite_callbacks.c selection.c
+		pkgindb_queries.c pkg_str.c sqlite_callbacks.c selection.c \
+		pkg_check.c
 # included from libinstall
 SRCS+=		automatic.c decompress.c dewey.c fexec.c global.c \
 		opattern.c pkgdb.c var.c

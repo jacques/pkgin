@@ -220,6 +220,14 @@ main(int argc, char *argv[])
 		missing_param(argc, 2, MSG_MISSING_FILENAME);
 		import_keep(do_inst, argv[1]);
 		break;
+	case PKG_SHPROV_CMD: /* show what a package provides */
+		missing_param(argc, 2, MSG_MISSING_PKGNAME);
+		show_prov_req(GET_PROVIDES_QUERY, argv[1]);
+		break;
+	case PKG_SHREQ_CMD: /* show what a package requires */
+		missing_param(argc, 2, MSG_MISSING_PKGNAME);
+		show_prov_req(GET_REQUIRES_QUERY, argv[1]);
+		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();
 		break;
