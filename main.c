@@ -48,6 +48,7 @@ FILE  		*tracefp = NULL;
 int
 main(int argc, char *argv[])
 {
+	uint8_t		updb_all;
 	uint8_t		do_inst = DO_INST; /* by default, do install packages */
 	int 		ch;
 	struct stat	sb;
@@ -134,11 +135,18 @@ main(int argc, char *argv[])
 
 	pkgindb_init();
 
+	/* check if current database fits our needs */
+	updb_all = upgrade_database();
+
 	/* update local db if pkgdb mtime has changed */
 	update_db(LOCAL_SUMMARY, NULL);
 
 	/* split PKG_REPOS env variable and record them */
 	split_repos();
+
+	/* upgrade remote database if pkgin version changed and not compatible */
+	if (updb_all)
+		update_db(REMOTE_SUMMARY, NULL);
 
 	/* find command index */
 	ch = find_cmd(argv[0]);
