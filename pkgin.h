@@ -215,7 +215,7 @@ Pkglist		*malloc_pkglist(uint8_t);
 void		free_pkglist_entry(Pkglist **, uint8_t);
 void		free_pkglist(Plisthead **, uint8_t);
 Plisthead	*init_head(void);
-Plisthead	*rec_pkglist(const char *);
+Plisthead	*rec_pkglist(const char *, ...);
 void		list_pkgs(const char *, int);
 void		search_pkg(const char *);
 /* actions.c */

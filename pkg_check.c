@@ -65,7 +65,7 @@ pkg_met_reqs(Plisthead *impacthead)
 	/* first, parse impact list */
 	SLIST_FOREACH(pimpact, impacthead, next) {
 		/* retreive requires list for package */
-		if ((requireshead = get_prov_req(GET_REQUIRES_QUERY,
+		if ((requireshead = rec_pkglist(GET_REQUIRES_QUERY,
 					pimpact->full)) == NULL)
 			/* empty requires list (very unlikely) */
 			continue;
