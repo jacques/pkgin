@@ -98,11 +98,8 @@ pkgin_autoremove()
 	free_pkglist(&keephead, DEPTREE);
 	free_pkglist(&plisthead, LIST);
 
-#ifdef WITHOUT_ORDER
-	orderedhead = removehead;
-#else
 	orderedhead = order_remove(removehead);
-#endif
+
 	if (!SLIST_EMPTY(orderedhead)) {
 		SLIST_FOREACH(premove, orderedhead, next)
 			toremove = action_list(toremove, premove->depend);
@@ -127,9 +124,6 @@ pkgin_autoremove()
 
 	XFREE(toremove);
 	free_pkglist(&orderedhead, DEPTREE);
-#ifndef WITHOUT_ORDER
-	XFREE(orderedhead);
-#endif
 }
 
 void
