@@ -144,7 +144,10 @@ main(int argc, char *argv[])
 	/* split PKG_REPOS env variable and record them */
 	split_repos();
 
-	/* upgrade remote database if pkgin version changed and not compatible */
+	/* 
+	 * upgrade remote database if pkgin version changed and not compatible 
+	 * or if empty database
+	 */
 	if (updb_all)
 		update_db(REMOTE_SUMMARY, NULL);
 

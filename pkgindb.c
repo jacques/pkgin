@@ -78,6 +78,9 @@ pkgindb_simple_callback(void *param, int argc, char **argv, char **colname)
 {
 	pdbres = argc;
 
+	if (argv == NULL)
+		return PDB_ERR;
+
 	return PDB_OK;
 }
 
@@ -122,6 +125,24 @@ pkgindb_close()
 
 	if (fp != NULL)
 		fclose(fp);
+}
+
+uint8_t
+upgrade_database()
+{
+	if (pkgindb_doquery(COMPAT_CHECK,
+			pkgindb_simple_callback, NULL) == PDB_ERR) {
+		/* COMPAT_CHECK query leads to an error for an incompatible database */
+		printf(MSG_DATABASE_NOT_COMPAT);
+		if (!check_yesno(DEFAULT_YES))
+			exit(EXIT_FAILURE);
+
+		pkgindb_reset();
+
+		return 1;
+	}
+
+	return 0;
 }
 
 void
