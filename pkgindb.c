@@ -36,7 +36,7 @@
 static sqlite3	*pdb;
 static char		*pdberr = NULL;
 static int		pdbres = 0;
-static FILE		*fp;
+static FILE		*sql_log_fp;
 
 static const char *pragmaopts[] = {
 	"cache_size = 1000000",
@@ -105,10 +105,10 @@ pkgindb_doquery(const char *query,
 {
 	if (sqlite3_exec(pdb, query, pkgindb_callback, param, &pdberr)
 		!= SQLITE_OK) {
-		if (fp != NULL) {
+		if (sql_log_fp != NULL) {
 			if (pdberr != NULL)
-				fprintf(fp, "SQL error: %s\n", pdberr);
-			fprintf(fp, "SQL query: %s\n", query);
+				fprintf(sql_log_fp, "SQL error: %s\n", pdberr);
+			fprintf(sql_log_fp, "SQL query: %s\n", query);
 		}
 		sqlite3_free(pdberr);
 
@@ -123,8 +123,8 @@ pkgindb_close()
 {
 	sqlite3_close(pdb);
 
-	if (fp != NULL)
-		fclose(fp);
+	if (sql_log_fp != NULL)
+		fclose(sql_log_fp);
 }
 
 uint8_t
@@ -155,7 +155,7 @@ pkgindb_init()
 	 * Do not exit if PKGIN_SQL_LOG is not writable.
 	 * Permit users to do list-operations
 	 */
-	fp = fopen(PKGIN_SQL_LOG, "w");
+	sql_log_fp = fopen(PKGIN_SQL_LOG, "w");
 
 	if (sqlite3_open(PDB, &pdb) != SQLITE_OK)
 		pdb_err("Can't open database " PDB);

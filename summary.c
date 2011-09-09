@@ -444,8 +444,7 @@ insert_summary(struct Summary sum, char **summary, char *cur_repo)
 			/* some rare packages have no version */
 			if (!exact_pkgfmt(pkgname)) {
 				snprintf(tmpname, BUFSIZ, "%s%s", pkgname, NOVERSION);
-				XFREE(pkgname);
-				XSTRDUP(pkgname, tmpname);
+				pkgname = &tmpname[0];
 			}
 
 			add_to_slist("FULLPKGNAME", pkgname);
