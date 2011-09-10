@@ -91,7 +91,7 @@
 #define MSG_UPGRADE_PKG_INSTALL "about to upgrade %s, "
 #define MSG_ERR_INSTALLING_PKG "/!\\ there was an error while installing %s, please check %s\n"
 #define MSG_ERR_REMOVING_PKG "/!\\ there was an error while removing %s, please check %s\n"
-#define MSG_WARNS_ERRS "warnings: %d, errors: %d\n"
+#define MSG_WARNS_ERRS "pkg_install warnings: %d, errors: %d\n"
 
 /* depends.c */
 #define MSG_DIRECT_DEPS_FOR "direct dependencies for %s\n"
