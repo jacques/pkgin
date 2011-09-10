@@ -55,7 +55,7 @@
 
 #define PKG_SUMMARY "pkg_summary"
 #define PKGIN_SQL_LOG PKGIN_DB"/sql.log"
-#define PKGIN_ERR_LOG PKGIN_DB"/err.log"
+#define PKG_INSTALL_ERR_LOG PKGIN_DB"/pkg_install-err.log"
 #define PKGIN_CACHE PKGIN_DB"/cache"
 #define PKG_EXT ".tgz"
 #define PKGIN_CONF PKG_SYSCONFDIR"/pkgin"
