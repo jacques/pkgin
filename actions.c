@@ -141,7 +141,7 @@ pkg_download(Plisthead *installhead)
 }
 
 /**
- * \brief Analyse PKG_INSTALL_ERR_LOG for errors
+ * \brief Analyse PKG_INSTALL_ERR_LOG for warnings
  */
 static void
 analyse_pkglog(fpos_t *filepos)
