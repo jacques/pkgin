@@ -156,9 +156,12 @@ analyse_pkglog(fpos_t *filepos)
 
 	(void)fsetpos(err_ro, filepos);
 
-	while (fgets(err_line, BUFSIZ, err_ro) != NULL)
+	while (fgets(err_line, BUFSIZ, err_ro) != NULL) {
 		if (strcasestr(err_line, "Warning") != NULL)
 			warn_count++;
+		if (strcasestr(err_line, "already installed") != NULL)
+			err_count--;
+	}
 
 	fclose(err_ro);
 }
@@ -284,22 +287,16 @@ do_pkg_install(Plisthead *installhead)
 				strncat(pi_tmp_flags, "v", 2);
 			if (check_yesno(DEFAULT_YES)) {
 #ifndef DEBUG
-				if (fexec(PKG_ADD, pi_tmp_flags, pkgpath, NULL) != EXIT_SUCCESS) {
-					printf(MSG_ERR_INSTALLING_PKG,
-						pinstall->depend, PKG_INSTALL_ERR_LOG);
+				if (fexec(PKG_ADD, pi_tmp_flags, pkgpath, NULL) != EXIT_SUCCESS)
 					err_count++;
-				}
 #endif
 			} else
 				continue;
 		} else {
 			/* every other package */
 #ifndef DEBUG
-			if (fexec(PKG_ADD, pkgtools_flags, pkgpath, NULL) != EXIT_SUCCESS) {
-				printf(MSG_ERR_INSTALLING_PKG, 
-					pinstall->depend, PKG_INSTALL_ERR_LOG);
+			if (fexec(PKG_ADD, pkgtools_flags, pkgpath, NULL) != EXIT_SUCCESS)
 				err_count++;
-			}
 #endif
 		}
 	} /* installation loop */
