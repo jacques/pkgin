@@ -102,7 +102,8 @@ find_exact_pkg(Plisthead *plisthead, const char *pkgarg)
 {
 	Pkglist	*pkglist;
 	char	*pkgname, *tmppkg;
-	int		tmplen, exact;
+	int		exact;
+	size_t	tmplen;
 
 	/* is it a versionned package ? */
 	exact = exact_pkgfmt(pkgarg);

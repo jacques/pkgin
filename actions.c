@@ -591,8 +591,10 @@ narrow_match(char *pkgname, const char *fullpkgname)
 {
 	Pkglist	*pkglist;
 	char	*best_match = NULL;
-	int		pkglen, fullpkglen, i, matchlen = 0;
+	unsigned int		i;
+	size_t  pkglen, fullpkglen, matchlen;
 
+	matchlen = 0;
 	pkglen = strlen(pkgname);
 	fullpkglen = strlen(fullpkgname);
 

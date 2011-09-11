@@ -299,11 +299,6 @@ usage()
 	exit(EXIT_FAILURE);
 }
 
-void
-cleanup(int i)
-{
-}
-
 static void
 ginto()
 {

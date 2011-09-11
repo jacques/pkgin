@@ -299,7 +299,7 @@ Plisthead *
 pkg_impact(char **pkgargs)
 {
 #ifndef DEBUG
-	static char	*icon = ICON_WAIT;
+	static char	*icon = __UNCONST(ICON_WAIT);
 #endif
 	Plisthead	*impacthead, *pdphead = NULL;
 	Pkglist		*pimpact, *tmpimpact, *pdp;
