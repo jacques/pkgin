@@ -47,6 +47,10 @@
 #include "lib.h"
 #include "dewey.h"
 
+#ifndef __UNCONST
+#define __UNCONST(a)	((void *)(unsigned long)(const void *)(a))
+#endif
+
 #ifndef PKGTOOLS
 #define PKGTOOLS "/usr/sbin"
 #endif
