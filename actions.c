@@ -157,11 +157,11 @@ analyse_pkglog(long int filepos)
 	(void)fseek(err_ro, filepos, SEEK_SET);
 
 	while (fgets(err_line, BUFSIZ, err_ro) != NULL) {
-		if (strcasestr(err_line, "Warning") != NULL)
+		if (strstr(err_line, "Warning") != NULL)
 			warn_count++;
-		if (strcasestr(err_line, "already installed") != NULL)
+		if (strstr(err_line, "already installed") != NULL)
 			err_count--;
-		if (strcasestr(err_line, "addition failed") != NULL)
+		if (strstr(err_line, "addition failed") != NULL)
 			err_count++;
 	}
 
