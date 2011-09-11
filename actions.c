@@ -227,10 +227,8 @@ do_pkg_remove(Plisthead *removehead)
 #ifndef DEBUG
 		log_tag(MSG_REMOVING, premove->depend);
 		if (fexec(PKG_DELETE, pkgtools_flags, premove->depend, NULL)
-			!= EXIT_SUCCESS) {
-			printf(MSG_ERR_REMOVING_PKG, premove->depend, PKG_INSTALL_ERR_LOG);
+			!= EXIT_SUCCESS)
 			err_count++;
-		}
 #endif
 	}
 
