@@ -33,6 +33,7 @@
 #ifndef _DRYDB_H
 #define _DRYDB_H
 
+#include <stdint.h>
 #include "pkgindb_create.h"
 
 extern const char DROP_LOCAL_TABLES[];
