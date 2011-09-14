@@ -44,7 +44,7 @@ pkgin_autoremove()
 	Plisthead	*plisthead, *keephead, *removehead, *orderedhead;
 	Pkglist		*pkglist, *premove, *pdp;
 	char		*toremove = NULL;
-	int			exists, removenb = 0;
+	int			is_keep_dep, removenb = 0;
 
 	/*
 	 * test if there's any keep package and record them
@@ -73,16 +73,15 @@ pkgin_autoremove()
 
 	/* parse non-keepables packages */
 	SLIST_FOREACH(pkglist, plisthead, next) {
-		exists = 0;
+		is_keep_dep = 0;
 		/* is it a dependence for keepable packages ? */
 		SLIST_FOREACH(pdp, keephead, next) {
 			if (strcmp(pdp->name, pkglist->name) == 0) {
-				exists = 1;
+				is_keep_dep = 1;
 				break;
 			}
 		}
-
-		if (exists)
+		if (is_keep_dep)
 			continue;
 
 		/* package was not found, insert it on removelist */
