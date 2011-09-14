@@ -224,6 +224,7 @@ void		list_pkgs(const char *, int);
 void		search_pkg(const char *);
 /* actions.c */
 int			check_yesno(uint8_t);
+void		do_pkg_remove(Plisthead *);
 int			pkgin_remove(char **);
 int			pkgin_install(char **, uint8_t);
 char		*action_list(char *, char *);

@@ -196,12 +196,12 @@ log_tag(const char *fmt, ...)
 }
 
 /* package removal */
-static void
+void
 do_pkg_remove(Plisthead *removehead)
 {
 	Pkglist *premove;
 
-/* send pkg_delete stderr to logfile */
+	/* send pkg_delete stderr to logfile */
 	if (!verbosity && !said) {
 		err_fp = freopen(PKG_INSTALL_ERR_LOG, "a", stderr);
 		rm_filepos = ftell(err_fp);
