@@ -61,7 +61,7 @@ pkgin_autoremove()
 
 	free_pkglist(&plisthead, LIST);
 
-	/* record unkeep packages */
+	/* record all unkeep / automatic packages */
 	if ((plisthead = rec_pkglist(NOKEEP_LOCAL_PKGS)) == NULL) {
 		free_pkglist(&keephead, DEPTREE);
 
