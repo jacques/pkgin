@@ -90,6 +90,8 @@ CPPFLAGS+=	-Iexternal -I. -Isqlite -I${LOCALBASE}/include
 LDADD+=		-L${LOCALBASE}/lib @RPATH@,${LOCALBASE}/lib	\
 		-lbz2 -lz -larchive @LIBS@
 
+CLEANFILES+=	${DPSRCS}
+
 pkgindb_create.h:
 	@SEDCMD=@SED@ ./mkpkgindb.sh > pkgindb_create.h
 
