@@ -99,6 +99,8 @@ pkgin_autoremove()
 
 	orderedhead = order_remove(removehead);
 
+	free_pkglist(&removehead, DEPTREE);
+
 	if (!SLIST_EMPTY(orderedhead)) {
 		SLIST_FOREACH(premove, orderedhead, next)
 			toremove = action_list(toremove, premove->depend);
