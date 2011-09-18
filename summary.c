@@ -670,6 +670,8 @@ update_db(int which, char **pkgkeep)
 			break;
 		}
 
+		free_list(summary);
+
 	} /* for sumsw */
 	/* columns name not needed anymore */
 	if (cols.name != NULL) {
