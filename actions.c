@@ -173,6 +173,7 @@ analyse_pkglog(long int filepos)
  */
 #define DATELEN 64
 
+#ifndef DEBUG
 static void
 log_tag(const char *fmt, ...)
 {
@@ -194,6 +195,7 @@ log_tag(const char *fmt, ...)
 	fflush(err_fp);
 	
 }
+#endif
 
 /* package removal */
 void
