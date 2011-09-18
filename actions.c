@@ -355,6 +355,7 @@ pkgin_install(char **opkgargs, uint8_t do_inst)
 	/* full impact list */
 	if ((impacthead = pkg_impact(pkgargs)) == NULL) {
 		printf(MSG_NOTHING_TO_DO);
+		free_list(pkgargs);
 		return rc;
 	}
 
