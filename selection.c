@@ -61,6 +61,9 @@ import_keep(uint8_t do_inst, const char *import_file)
 		err(EXIT_FAILURE, MSG_ERR_OPEN, import_file);
 
 	while (fgets(input, BUFSIZ, fp) != NULL) {
+		if (!isalnum((int)input[0]))
+			continue;
+
 		 /* 1st element + NULL */
 		XREALLOC(pkglist, (list_size + 2) * sizeof(char *));
 
