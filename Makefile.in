@@ -17,6 +17,7 @@ SRCS+=		@SRCS@
 DPSRCS=	pkgindb_create.h
 
 CC=		@CC@
+INSTALL=	@INSTALL@
 
 OPSYS!=		uname
 OS_VER!=	uname -r
