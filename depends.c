@@ -123,7 +123,7 @@ show_direct_depends(const char *pkgarg)
 	}
 
 	if ((pkgname = unique_pkg(pkgarg, REMOTE_PKG)) == NULL) {
-		fprintf(stderr, MSG_PKG_NOT_AVAIL, pkgname);
+		fprintf(stderr, MSG_PKG_NOT_AVAIL, pkgarg);
 		return;
 	}
 
