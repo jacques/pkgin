@@ -50,7 +50,7 @@
 
 #define MSG_MISSING_PKG_REPOS \
 	PKGIN_CONF"/"REPOS_FILE" has no repositories or does not exist.\nNo PKG_REPOS variable to fallback to."
-#define MSG_CANT_OPEN_TRACEFILE "Couldn't open %s for writing."
+#define MSG_CANT_OPEN_WRITE "Couldn't open %s for writing."
 
 /* actions.c */
 #define MSG_PROCEED_YES "proceed ? [Y/n] "

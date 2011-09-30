@@ -205,7 +205,8 @@ do_pkg_remove(Plisthead *removehead)
 
 	/* send pkg_delete stderr to logfile */
 	if (!verbosity && !said) {
-		err_fp = freopen(PKG_INSTALL_ERR_LOG, "a", stderr);
+		if ((err_fp = freopen(PKG_INSTALL_ERR_LOG, "a", stderr)) == NULL)
+			err(EXIT_FAILURE, MSG_CANT_OPEN_WRITE, PKG_INSTALL_ERR_LOG);
 		rm_filepos = ftell(err_fp);
 		said = 1;
 	}
@@ -257,7 +258,8 @@ do_pkg_install(Plisthead *installhead)
 
 /* send pkg_add stderr to logfile */
 	if (!verbosity && !said) {
-		err_fp = freopen(PKG_INSTALL_ERR_LOG, "a", stderr);
+		if ((err_fp = freopen(PKG_INSTALL_ERR_LOG, "a", stderr)) == NULL)
+			err(EXIT_FAILURE, MSG_CANT_OPEN_WRITE, PKG_INSTALL_ERR_LOG);
 		in_filepos = ftell(err_fp);
 		said = 1;
 	}

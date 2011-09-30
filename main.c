@@ -100,7 +100,7 @@ main(int argc, char *argv[])
 			break;
 		case 't':
 			if ((tracefp = fopen(optarg, "w")) == NULL)
-				err(EXIT_FAILURE, MSG_CANT_OPEN_TRACEFILE, optarg);
+				err(EXIT_FAILURE, MSG_CANT_OPEN_WRITE, optarg);
 			break;
 		default:
 			usage();
