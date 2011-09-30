@@ -231,7 +231,8 @@ do_pkg_remove(Plisthead *removehead)
 
 		printf(MSG_REMOVING, premove->depend);
 #ifndef DEBUG
-		log_tag(MSG_REMOVING, premove->depend);
+		if (!verbosity)
+			log_tag(MSG_REMOVING, premove->depend);
 		if (fexec(PKG_DELETE, pkgtools_flags, premove->depend, NULL)
 			!= EXIT_SUCCESS)
 			err_count++;
@@ -285,7 +286,8 @@ do_pkg_install(Plisthead *installhead)
 			"%s/%s%s", pkgin_cache, pinstall->depend, PKG_EXT);
 
 #ifndef DEBUG
-		log_tag(MSG_INSTALLING, pinstall->depend);
+		if (!verbosity)
+			log_tag(MSG_INSTALLING, pinstall->depend);
 #endif
 
 		/* are we upgrading pkg_install ? */
