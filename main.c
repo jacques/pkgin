@@ -127,6 +127,10 @@ main(int argc, char *argv[])
 			errx(-1, MSG_CHDIR_FAILED);
 	}
 
+	/* check for pkg_install */
+	if (stat(PKG_ADD, &sb) < 0)
+		errx(EXIT_FAILURE, MSG_PKG_INSTALL_NOT_PRESENT);
+
 	/* for pkg_install */
 	unsetenv("PKG_PATH");
 	/* create base directories */
