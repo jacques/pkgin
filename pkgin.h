@@ -190,6 +190,7 @@ extern uint8_t 		force_update;
 extern uint8_t 		force_reinstall;
 extern uint8_t		verbosity;
 extern uint8_t		package_version;
+extern uint8_t		pi_upgrade; /* pkg_install upgrade */
 extern char			*env_repos;
 extern char			**pkg_repos;
 extern const char	*pkgin_cache;
