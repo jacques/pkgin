@@ -76,7 +76,7 @@ pkgin_autoremove()
 		is_keep_dep = 0;
 		/* is it a dependence for keepable packages ? */
 		SLIST_FOREACH(pdp, keephead, next) {
-			if (strcmp(pdp->name, pkglist->name) == 0) {
+			if (pkg_match(pdp->depend, pkglist->full)) {
 				is_keep_dep = 1;
 				break;
 			}
