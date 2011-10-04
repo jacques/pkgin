@@ -97,6 +97,11 @@ pkgin_autoremove()
 	free_pkglist(&keephead, DEPTREE);
 	free_pkglist(&plisthead, LIST);
 
+	if (!removenb) {
+		printf(MSG_NO_ORPHAN_DEPS);
+		exit(EXIT_SUCCESS);
+	}
+
 	orderedhead = order_remove(removehead);
 
 	free_pkglist(&removehead, DEPTREE);

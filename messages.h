@@ -110,6 +110,7 @@ in order to remove packages from the autoremove list, flag those with the `keep'
 #define MSG_MARK_PKG_KEEP "%s is marked as non-autoremovable\n"
 #define MSG_MARKING_PKG_KEEP "marking %s as non auto-removable\n"
 #define MSG_UNMARKING_PKG_KEEP "marking %s as auto-removable\n"
+#define MSG_NO_ORPHAN_DEPS "no orphan dependencies found.\n"
 
 /* summary.c */
 #define MSG_UPDATING_DB "updating database:   0%%"
