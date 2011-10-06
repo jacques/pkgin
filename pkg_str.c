@@ -209,7 +209,7 @@ non_trivial_glob(char *depend)
  * foo-{bar,baz}
  * foo-1.0{,nb[0-9]*} - 260
  * foo-[0-9]* - 3214
- * foo-[a-z]*-[0-9]* - NOT HANDLED here, see pdb_rec_depends()
+ * foo-[a-z]*-[0-9]* - not handled here, see pdb_rec_depends()
  * foo-1.0 - 20
  */
 char *
