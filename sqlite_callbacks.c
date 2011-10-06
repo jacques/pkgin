@@ -126,7 +126,7 @@ pdb_rec_depends(void *param, int argc, char **argv, char **colname)
 	XSTRDUP(deptree->depend, DEPS_FULLPKG);
 
 	/* unresolved pkgname because of complex dependency glob */
-	if (strcmp(DEPS_PKGNAME, UNRESOLVED_DEP) == 0) {
+	if (non_trivial_glob(DEPS_FULLPKG)) {
 		/* check wether we're getting local or remote dependencies */
 		if (strncmp(colname[0], "LOCAL_", 6) == 0)
 			plisthead = &l_plisthead;

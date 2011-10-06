@@ -220,12 +220,6 @@ get_pkgname_from_depend(char *depend)
 	if (depend == NULL || *depend == '\0')
 		return NULL;
 
-	/* non-trivial cases handled by pdb_rec_depends() with map_pkg_to_dep() */
-	if (non_trivial_glob(depend)) {
-		XSTRDUP(pkgname, UNRESOLVED_DEP);
-		return pkgname;
-	}
-
 	/* 1. worse case, {foo>=1.0,bar-[0-9]*} */
 	if (*depend == '{') {
 		XSTRDUP(pkgname, depend + 1);
