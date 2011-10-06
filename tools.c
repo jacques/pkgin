@@ -32,6 +32,22 @@
 
 #include "tools.h"
 
+int
+charcount(char *str, char c)
+{
+	char	*p;
+	int		count = 0;
+
+	if (str == NULL)
+		return 0;
+
+	for (p = str; *p != '\0'; p++)
+		if (*p == c)
+			count++;
+
+	return count;
+}
+
 __inline int
 trimcr(char *str)
 {

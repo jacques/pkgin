@@ -119,6 +119,8 @@
 #define ANSW_NO 0
 #define ANSW_YES 1
 
+#define UNRESOLVED_DEP "unresolved"
+
 #define TRACE(fmt...) if (tracefp != NULL) fprintf(tracefp, fmt)
 
 typedef struct Dlfile {
@@ -249,6 +251,7 @@ char		*read_repos(void);
 /* pkg_str.c */
 char	   	*unique_pkg(const char *, const char *);
 Pkglist		*map_pkg_to_dep(Plisthead *, char *);
+uint8_t		non_trivial_glob(char *);
 char		*get_pkgname_from_depend(char *);
 int			exact_pkgfmt(const char *);
 char		*find_exact_pkg(Plisthead *, const char *);

@@ -125,17 +125,22 @@ pdb_rec_depends(void *param, int argc, char **argv, char **colname)
 	deptree = malloc_pkglist(DEPTREE);
 	XSTRDUP(deptree->depend, DEPS_FULLPKG);
 
-	/* check wether we're getting local or remote dependencies */
-	if (strncmp(colname[0], "LOCAL_", 6) == 0)
-		plisthead = &l_plisthead;
-	else
-		plisthead = &r_plisthead;
+	/* unresolved pkgname because of complex dependency glob */
+	if (strcmp(DEPS_PKGNAME, UNRESOLVED_DEP) == 0) {
+		/* check wether we're getting local or remote dependencies */
+		if (strncmp(colname[0], "LOCAL_", 6) == 0)
+			plisthead = &l_plisthead;
+		else
+			plisthead = &r_plisthead;
 
-	/* map corresponding pkgname */
-	if ((pkg_map = map_pkg_to_dep(plisthead, deptree->depend)) != NULL)
-		XSTRDUP(deptree->name, pkg_map->name);
-	else
-		/* some dependencies just don't match anything */
+		/* map corresponding pkgname */
+		if ((pkg_map = map_pkg_to_dep(plisthead, deptree->depend)) != NULL)
+			XSTRDUP(deptree->name, pkg_map->name);
+		else
+			/* some dependencies just don't match anything */
+			XSTRDUP(deptree->name, DEPS_PKGNAME);
+	} else
+		/* case handled by get_pkgname_from_depend() */
 		XSTRDUP(deptree->name, DEPS_PKGNAME);
 
 	deptree->computed = 0;

@@ -198,6 +198,7 @@ typedef uint8_t T_Bool;
 		 (var) = (tvar))
 #endif
 
+extern int charcount(char *, char);
 extern int trimcr(char *);
 extern char **splitstr(char *, const char *);
 extern void free_list(char **);
