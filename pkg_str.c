@@ -200,6 +200,7 @@ cleanup_version(char *pkgname)
  * foo-{bar,baz}
  * foo-1.0{,nb[0-9]*} - 260
  * foo-[0-9]* - 3214
+ * foo-[a-z]*-[0-9]* - NOT HANDLED (see pdb_rec_depends())
  * foo-1.0 - 20
  */
 char *
