@@ -73,6 +73,7 @@
 #define TOINSTALL 0
 #define TOUPGRADE 1
 #define TOREMOVE 2
+#define UNMET_REQ 3
 
 #define KEEP 1
 #define UNKEEP 0

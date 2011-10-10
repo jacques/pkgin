@@ -67,6 +67,9 @@ pkg_met_reqs(Plisthead *impacthead)
 					printf(MSG_REQT_NOT_PRESENT,
 						requires->full, pimpact->full);
 
+					/* mark as DONOTHING, requirement missing */
+					pimpact->action = UNMET_REQ;
+
 					met_reqs = 0;
 				}
 				/* was a basysfile, no need to check PROVIDES */
