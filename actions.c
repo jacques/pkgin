@@ -459,8 +459,14 @@ pkgin_install(char **opkgargs, uint8_t do_inst)
 #endif
 				}
 			}
-			printf(MSG_PKGS_TO_REMOVE, removenum, toremove);
-			printf("\n");
+			/* 
+			 * some packages may have been marked as TOREMOVE, then 
+			 * discovered as TOUPGRADE
+			 */
+			if (toremove != NULL) {
+				printf(MSG_PKGS_TO_REMOVE, removenum, toremove);
+				printf("\n");
+			}
 		}
 
 	} else
