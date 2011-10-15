@@ -120,6 +120,7 @@ pkg_download(Plisthead *installhead)
 		if (strncmp(pkg_url, SCHEME_FILE, strlen(SCHEME_FILE)) == 0) {
 			if (symlink(pkg_url, pkg_fs) < 0)
 				errx(EXIT_FAILURE, MSG_SYMLINK_FAILED, pkg_fs);
+			printf(MSG_SYMLINKING_PKG, pkg_url);
 			continue;
 		}
 

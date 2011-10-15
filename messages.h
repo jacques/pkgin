@@ -60,6 +60,7 @@
 #define MSG_DOWNLOAD_PKGS "downloading packages...\n"
 #define MSG_PKG_NO_REPO "%s has no associated repository"
 #define MSG_SYMLINK_FAILED "failed to create symlink %s"
+#define MSG_SYMLINKING_PKG "symlinking %s...\n"
 #define MSG_ERR_OPEN "error opening %s"
 #define MSG_INSTALL_PKG "installing packages...\n"
 #define MSG_INSTALLING "installing %s...\n"
