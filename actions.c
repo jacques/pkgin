@@ -118,7 +118,7 @@ pkg_download(Plisthead *installhead)
 
 		/* if pkg's repo URL is file://, just symlink */
 		if (strncmp(pkg_url, SCHEME_FILE, strlen(SCHEME_FILE)) == 0) {
-			if (symlink(pkg_url, pkg_fs) < 0)
+			if (symlink(&pkg_url[strlen(SCHEME_FILE) + 3], pkg_fs) < 0)
 				errx(EXIT_FAILURE, MSG_SYMLINK_FAILED, pkg_fs);
 			printf(MSG_SYMLINKING_PKG, pkg_url);
 			continue;
