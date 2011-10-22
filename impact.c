@@ -87,7 +87,7 @@ break_depends(Plisthead *impacthead, Pkglist *pimpact)
 	trunc_str(pkgname, '-', STR_BACKWARD);
 
 	/* fetch old package reverse dependencies */
-	full_dep_tree(pkgname, LOCAL_REVERSE_DEPS, rdphead);
+	full_dep_tree(pkgname, REMOTE_REVERSE_DEPS, rdphead);
 
 	XFREE(pkgname);
 
@@ -136,11 +136,12 @@ break_depends(Plisthead *impacthead, Pkglist *pimpact)
 		 * browse dependencies for rdp and see if
 		 * new package to be installed matches
 		 */
-		SLIST_FOREACH(fdp, fdphead, next)
+		SLIST_FOREACH(fdp, fdphead, next) {
 			if (pkg_match(fdp->depend, pimpact->full)) {
 				dep_break = 0;
 				break;
 			}
+		}
 
 		free_pkglist(&fdphead, DEPTREE);
 

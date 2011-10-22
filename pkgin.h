@@ -210,8 +210,8 @@ void		split_repos(void);
 int			pdb_rec_list(void *, int, char **, char **);
 int			pdb_rec_depends(void *, int, char **, char **);
 /* depends.c */
-void		show_direct_depends(const char *);
-void		show_full_dep_tree(const char *, const char *, const char *);
+int			show_direct_depends(const char *);
+int			show_full_dep_tree(const char *, const char *, const char *);
 void 		full_dep_tree(const char *pkgname, const char *depquery,
 	Plisthead	*pdphead);
 /* pkglist.c */
