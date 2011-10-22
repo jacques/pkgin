@@ -407,8 +407,10 @@ pkgin_install(char **opkgargs, uint8_t do_inst)
 			pkgin_cache, pimpact->full, PKG_EXT);
 
 		/* if package is not already downloaded or size mismatch, d/l it */
-		if (stat(pkgpath, &st) < 0 || st.st_size != pimpact->file_size)
-			file_size += pimpact->file_size;
+		if ((stat(pkgpath, &st) < 0 || st.st_size != pimpact->file_size) &&
+			/* don't update file_size if repo is file:// */
+			strncmp(pkgpath, SCHEME_FILE, strlen(SCHEME_FILE) == 0))
+				file_size += pimpact->file_size;
 
 		size_pkg += pimpact->size_pkg;
 
