@@ -87,7 +87,7 @@ break_depends(Plisthead *impacthead, Pkglist *pimpact)
 	trunc_str(pkgname, '-', STR_BACKWARD);
 
 	/* fetch old package reverse dependencies */
-	full_dep_tree(pkgname, REMOTE_REVERSE_DEPS, rdphead);
+	full_dep_tree(pkgname, LOCAL_REVERSE_DEPS, rdphead);
 
 	XFREE(pkgname);
 
