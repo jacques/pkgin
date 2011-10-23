@@ -412,6 +412,9 @@ pkgin_install(char **opkgargs, uint8_t do_inst)
 			strncmp(pkgpath, SCHEME_FILE, strlen(SCHEME_FILE) != 0))
 				file_size += pimpact->file_size;
 
+		if (pimpact->old_size_pkg > 0)
+			pimpact->size_pkg -= pimpact->old_size_pkg;
+
 		size_pkg += pimpact->size_pkg;
 
 		switch (pimpact->action) {

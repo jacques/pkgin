@@ -154,6 +154,7 @@ typedef struct Pkglist {
 	uint8_t	type; /*!< list type (LIST, DEPTREE or IMPACT) */
 
 	int64_t	size_pkg; /*!< installed package size (list and impact) */
+	int64_t old_size_pkg; /*!< old installed package size */
 	int64_t	file_size; /*!< binary package size */
 	int		level; /*<! recursion level (deptree and impact) */
 

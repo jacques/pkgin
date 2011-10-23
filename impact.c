@@ -249,6 +249,8 @@ deps_impact(Plisthead *impacthead, Pkglist *pdp)
 				pimpact->file_size = mapplist->file_size;
 				/* record installed package size */
 				pimpact->size_pkg = mapplist->size_pkg;
+				/* record old package size */
+				pimpact->old_size_pkg = plist->size_pkg;
 
 			} /* !pkg_match */
 

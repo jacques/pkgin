@@ -54,6 +54,7 @@ malloc_pkglist(uint8_t type)
 	pkglist->version = NULL;
 	pkglist->depend = NULL;
 	pkglist->size_pkg = 0;
+	pkglist->old_size_pkg = -1;
 	pkglist->file_size = 0;
 	pkglist->level = 0;
 
