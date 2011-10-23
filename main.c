@@ -56,7 +56,7 @@ main(int argc, char *argv[])
 
 	setprogname(argv[0]);
 
-	if (argc < 2)
+	if (argc < 2 || *argv[1] == 'h')
 		usage();
 
 	while ((ch = getopt(argc, argv, "dhyfFPvVl:nc:t:")) != -1) {

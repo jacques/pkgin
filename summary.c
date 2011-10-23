@@ -571,6 +571,9 @@ update_db(int which, char **pkgkeep)
 	Pkglist		*pkglist;
 	char		**summary = NULL, **prepos, buf[BUFSIZ];
 
+	if (access(PKGIN_DB, W_OK) < 0 || access(PKG_DBDIR, W_OK) < 0)
+		return;
+
 	for (i = 0; i < 2; i++) {
 
 		switch (sumsw[i].type) {
