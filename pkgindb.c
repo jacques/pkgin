@@ -47,6 +47,15 @@ static const char *pragmaopts[] = {
 	NULL
 };
 
+uint8_t
+have_enough_rights()
+{
+	if (access(PKGIN_DB, W_OK) < 0 || access(PKG_DBDIR, W_OK) < 0)
+		return 0;
+
+	return 1;
+}
+
 const char *
 pdb_version(void)
 {

@@ -571,7 +571,7 @@ update_db(int which, char **pkgkeep)
 	Pkglist		*pkglist;
 	char		**summary = NULL, **prepos, buf[BUFSIZ];
 
-	if (access(PKGIN_DB, W_OK) < 0 || access(PKG_DBDIR, W_OK) < 0)
+	if (!have_enough_rights())
 		return EXIT_FAILURE;
 
 	for (i = 0; i < 2; i++) {

@@ -76,6 +76,7 @@ extern const char COMPAT_CHECK[];
 
 #define PDB PKGIN_DB"/pkgin.db"
 
+uint8_t		have_enough_rights(void);
 const char	*pdb_version(void);
 uint8_t		upgrade_database(void);
 void		pkgindb_init(void);
