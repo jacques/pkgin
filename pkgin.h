@@ -205,7 +205,7 @@ extern FILE			*tracefp;
 /* download.c*/
 Dlfile		*download_file(char *, time_t *);
 /* summary.c */
-void		update_db(int, char **);
+int			update_db(int, char **);
 void		split_repos(void);
 /* sqlite_callbacks.c */
 int			pdb_rec_list(void *, int, char **, char **);

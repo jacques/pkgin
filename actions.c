@@ -518,7 +518,7 @@ pkgin_install(char **opkgargs, uint8_t do_inst)
 
 				/* pure install, not called by pkgin_upgrade */
 				if (upgrade_type == UPGRADE_NONE)
-					update_db(LOCAL_SUMMARY, pkgargs);
+					(void)update_db(LOCAL_SUMMARY, pkgargs);
 				
 				rc = EXIT_SUCCESS;
 			}
@@ -612,7 +612,7 @@ pkgin_remove(char **pkgargs)
 		if (check_yesno(DEFAULT_YES)) {
 			do_pkg_remove(removehead);
 
-			update_db(LOCAL_SUMMARY, NULL);
+			(void)update_db(LOCAL_SUMMARY, NULL);
 
 			rc = EXIT_SUCCESS;
 		} else
@@ -728,7 +728,7 @@ pkgin_upgrade(int uptype)
 			pkgargs = record_upgrades(keeplisthead);
 		}
 
-		update_db(LOCAL_SUMMARY, pkgargs);
+		(void)update_db(LOCAL_SUMMARY, pkgargs);
 	}
 
 	free_list(pkgargs);

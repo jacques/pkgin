@@ -52,6 +52,7 @@
 	PKGIN_CONF"/"REPOS_FILE" has no repositories or does not exist.\nNo PKG_REPOS variable to fallback to."
 #define MSG_CANT_OPEN_WRITE "Couldn't open %s for writing.\n"
 #define MSG_PKG_INSTALL_NOT_PRESENT "pkg_install package is not installed."
+#define MSG_DONT_HAVE_RIGHTS "You don't have enough rights for this operation."
 
 /* actions.c */
 #define MSG_PROCEED_YES "proceed ? [Y/n] "
