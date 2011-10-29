@@ -590,6 +590,7 @@ update_db(int which, char **pkgkeep)
 			/* delete local pkg table (faster than updating) */
 			pkgindb_doquery(DELETE_LOCAL, NULL, NULL);
 
+			printf(MSG_READING_LOCAL_SUMMARY);
 			/* generate summary locally */
 			summary = exec_list(PKGTOOLS "/pkg_info -Xa", NULL);
 
