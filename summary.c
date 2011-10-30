@@ -528,7 +528,8 @@ delete_remote_tbl(struct Summary sum, char *repo)
 		if (strstr(ptbl, "_PKG") != NULL)
 			continue;
 
-		snprintf(buf, BUFSIZ, DELETE_REMOTE, ptbl, ptbl, repo, ptbl);
+		snprintf(buf, BUFSIZ, DELETE_REMOTE,
+			ptbl, ptbl, ptbl, ptbl, ptbl, repo, ptbl);
 		pkgindb_doquery(buf, NULL, NULL);
 	}
 
