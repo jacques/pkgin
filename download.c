@@ -58,7 +58,7 @@ download_file(char *str_url, time_t *db_mtime)
 
 	if (st.size == -1) { /* could not obtain file size */
 		if (db_mtime != NULL) /* we're downloading pkg_summary */
-			*db_mtime = 0; /* ! -1, don't force update */
+			*db_mtime = 0; /* not -1, don't force update */
 
 		return NULL;
 	}
