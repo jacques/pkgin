@@ -304,7 +304,7 @@ usage()
 
 	for (i = 0; cmd[i].name != NULL; i++)
 		if (cmd[i].cmdtype != PKG_GINTO_CMD)
-			printf("%s (%s) -  %s\n",
+			printf("%-15s (%-4s) -  %s\n",
 				cmd[i].name, cmd[i].shortcut, cmd[i].descr);
 
 	exit(EXIT_FAILURE);
