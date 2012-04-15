@@ -78,6 +78,8 @@ static struct command {
 	  PKG_SHREQ_CMD },
 	{ "pkg-content", "pc", "Show package's content.",
 	  PKG_SHPKGCONT_CMD },
+	{ "pkg-descr", "pd", "Show package's long-description.",
+	  PKG_SHPKGDESC_CMD },
 	{ "tonic", "to", "Gin Tonic recipe.",
 	  PKG_GINTO_CMD },
 	{ NULL, NULL, NULL, 0 }

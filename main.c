@@ -250,6 +250,10 @@ main(int argc, char *argv[])
 		missing_param(argc, 2, MSG_MISSING_PKGNAME);
 		show_pkg_info('L', argv[1]); /* pkg_info flag */
 		break;
+	case PKG_SHPKGDESC_CMD: /* show remote package DESCR */
+		missing_param(argc, 2, MSG_MISSING_PKGNAME);
+		show_pkg_info('d', argv[1]); /* pkg_info flag */
+		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();
 		break;
