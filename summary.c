@@ -651,7 +651,7 @@ update_remotedb(void)
 		/* load remote pkg_summary */
 		if ((summary = fetch_summary(*prepos)) == NULL) {
 			printf(MSG_DB_IS_UP_TO_DATE, *prepos);
-			return;
+			continue;
 		}
 
 		printf(MSG_PROCESSING_REMOTE_SUMMARY, *prepos);
