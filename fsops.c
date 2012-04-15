@@ -33,6 +33,8 @@
 #include "pkgin.h"
 #include <dirent.h>
 
+#define FILE_OFFSET_BITS 64 /* needed for large filesystems on sunos */
+
 /* Variable options for the repositories file */
 static const struct VarParam {
 	const char *opt;
