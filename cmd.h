@@ -76,7 +76,7 @@ static struct command {
 	  PKG_SHPROV_CMD },
 	{ "requires", "req", "Show what files a package requires.",
 	  PKG_SHREQ_CMD },
-	{ "pkg-content", "pc", "Show package's files.",
+	{ "pkg-content", "pc", "Show package's content.",
 	  PKG_SHPKGCONT_CMD },
 	{ "tonic", "to", "Gin Tonic recipe.",
 	  PKG_GINTO_CMD },

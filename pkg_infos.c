@@ -51,9 +51,10 @@ show_pkg_info(char flag, char *pkgname)
 
 		for (i = 0; out_cmd[i] != NULL; i++)	
 			printf("%s\n", out_cmd[i]);
+
+		free_list(out_cmd);
 	}
 
-	free_list(out_cmd);
 	XFREE(fullpkgname);
 
 	return;
