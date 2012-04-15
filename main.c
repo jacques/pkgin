@@ -246,6 +246,10 @@ main(int argc, char *argv[])
 		missing_param(argc, 2, MSG_MISSING_PKGNAME);
 		show_prov_req(GET_REQUIRES_QUERY, argv[1]);
 		break;
+	case PKG_SHPKGCONT_CMD: /* show remote package content */
+		missing_param(argc, 2, MSG_MISSING_PKGNAME);
+		show_pkg_info('L', argv[1]); /* pkg_info flag */
+		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();
 		break;

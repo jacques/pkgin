@@ -56,6 +56,7 @@
 #endif
 #define PKG_DELETE PKGTOOLS"/pkg_delete"
 #define PKG_ADD PKGTOOLS"/pkg_add"
+#define PKG_INFO PKGTOOLS"/pkg_info"
 
 #define PKG_SUMMARY "pkg_summary"
 #define PKGIN_SQL_LOG PKGIN_DB"/sql.log"
@@ -109,6 +110,7 @@
 #define PKG_IMPORT_CMD 17
 #define PKG_SHPROV_CMD 18
 #define PKG_SHREQ_CMD 19
+#define PKG_SHPKGCONT_CMD 20
 #define PKG_GINTO_CMD 255
 
 #define PKG_EQUAL '='
@@ -264,5 +266,7 @@ void		import_keep(uint8_t, const char *);
 int			pkg_met_reqs(Plisthead *);
 int			pkg_has_conflicts(Pkglist *);
 void		show_prov_req(const char *, const char *);
+/* pkg_infos.c */
+void		show_pkg_info(char, char *);
 
 #endif
