@@ -632,25 +632,33 @@ pkgin_remove(char **pkgargs)
 	return rc;
 }
 
-/* find closest match for packages to be upgraded */
+/* 
+ * find closest match for packages to be upgraded 
+ * prefer mysql-5.1.20 over mysql-5.5.20 when upgrading
+ */
 static char *
 narrow_match(char *pkgname, const char *fullpkgname)
 {
 	Pkglist	*pkglist;
 	char	*best_match = NULL;
 	unsigned int		i;
-	size_t  pkglen, fullpkglen, matchlen;
+	size_t  pkglen, fullpkglen, r_fullpkglen, matchlen;
 
 	matchlen = 0;
 	pkglen = strlen(pkgname);
 	fullpkglen = strlen(fullpkgname);
 
 	SLIST_FOREACH(pkglist, &r_plisthead, next) {
-		if (strlen(pkglist->name) == pkglen &&
-			strncmp(pkgname, pkglist->name, pkglen) == 0) {
+		if (strcmp(pkgname, pkglist->name) == 0) {
 
-			for (i = 0;
-				 i < fullpkglen && fullpkgname[i] == pkglist->full[i];
+			/* installed package is equal or greater that repo's one */
+			if (strcmp(fullpkgname, pkglist->full) >= 0)
+				continue;
+
+			r_fullpkglen = strlen(pkglist->full);
+
+			for (i = 0; i < fullpkglen && i < r_fullpkglen &&
+					 fullpkgname[i] == pkglist->full[i];
 				i++);
 
 			if (i > matchlen) {
