@@ -80,6 +80,8 @@ static struct command {
 	  PKG_SHPKGCONT_CMD },
 	{ "pkg-descr", "pd", "Show remote package's long-description.",
 	  PKG_SHPKGDESC_CMD },
+	{ "pkg-build-defs", "pbd", "Show remote package's build definitions.",
+	  PKG_SHPKGBDEFS_CMD },
 	{ "tonic", "to", "Gin Tonic recipe.",
 	  PKG_GINTO_CMD },
 	{ NULL, NULL, NULL, 0 }

@@ -254,6 +254,10 @@ main(int argc, char *argv[])
 		missing_param(argc, 2, MSG_MISSING_PKGNAME);
 		show_pkg_info('d', argv[1]); /* pkg_info flag */
 		break;
+	case PKG_SHPKGBDEFS_CMD: /* show remote package build definitions */
+		missing_param(argc, 2, MSG_MISSING_PKGNAME);
+		show_pkg_info('B', argv[1]); /* pkg_info flag */
+		break;
 	case PKG_GINTO_CMD: /* Miod's request */
 		ginto();
 		break;
